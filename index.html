@@ -127,6 +127,16 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
@@ -217,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-07-05 01:44:39" itemprop="dateModified" datetime="2021-07-05T01:44:39+08:00">2021-07-05</time>
+                <time title="修改時間：2021-07-05 04:08:01" itemprop="dateModified" datetime="2021-07-05T04:08:01+08:00">2021-07-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,6 +240,20 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/hexo/20210704/1046535037/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hexo/20210704/1046535037/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -240,7 +264,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>不知道是否有許多人跟我一樣，想架設一個不用擔心會「倒閉」的部落格。<br>上網查，兩種熱門的選擇分別是Wordpress和Hexo。<br>不過Wordpress要花錢，所以最終選擇Hexo了。</p>
+          <p>小鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方。<br>但總不可能用紙筆寫程式碼，於是決定藉此機會建立一個部落格。<br>既然都要建部落格了，當然要給自己一個挑戰啊!<br>經過上網爬文後，選了一個給程式菜雞些微難度的Hexo - 一個網誌框架。<br>官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…<br>即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…<br>總之這篇文章十分適合給沒什麼程式基礎的人看!</p>
+<p>##事前準備</p>
+<ul>
+<li>了解CMD(命令提示字元)的基本指令</li>
+<li>看得懂最基本的目錄(directory)和路徑(path)</li>
+<li>認識Git, Github，並註冊一個 <a target="_blank" rel="noopener" href="https://github.com/">Github帳號</a> </li>
+<li>安裝好Git以及Node.js</li>
+</ul>
 
       
     </div>
@@ -288,6 +319,20 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/uncategorized/20210630/undefined/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/20210630/undefined/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -397,12 +442,16 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分類</span>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">標籤</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -435,6 +484,9 @@
   <span class="author" itemprop="copyrightHolder">K. Runny Deer</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=60e205bc9bcbc8c7" async="async"></script>
   </div>
 
         
@@ -491,6 +543,17 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://RunnyDeer.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
 
 </body>
 </html>
