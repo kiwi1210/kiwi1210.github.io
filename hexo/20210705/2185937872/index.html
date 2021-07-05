@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="乾鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。既然都要建部落格了，當然要給自己一個挑戰啊!經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…總之這篇文章十分適合給沒什麼程式基礎的人看!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[object Object]">
+<meta property="og:url" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/index.html">
+<meta property="og:site_name" content="Runny Deer">
+<meta property="og:description" content="乾鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。既然都要建部落格了，當然要給自己一個挑戰啊!經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…總之這篇文章十分適合給沒什麼程式基礎的人看!">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(1).jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(2).jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(3).jpg">
+<meta property="article:published_time" content="2021-07-05T11:40:52.000Z">
+<meta property="article:modified_time" content="2021-07-05T17:00:27.360Z">
+<meta property="article:author" content="Runny Deer 乾鹿">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(1).jpg">
+
+<link rel="canonical" href="http://kiwi1210.github.io.com/hexo/20210705/2185937872/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[object Object] | Runny Deer</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-201219835-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Runny Deer</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">A Learning Note for Programing & GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/hexo/20210705/2185937872/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Runny Deer 乾鹿">
+      <meta itemprop="description" content="Hi, I'm Runny Deer, a rookie exploring the world of programing and GIS!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runny Deer">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [object Object]
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-07-05 19:40:52" itemprop="dateCreated datePublished" datetime="2021-07-05T19:40:52+08:00">2021-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-07-06 01:00:27" itemprop="dateModified" datetime="2021-07-06T01:00:27+08:00">2021-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/hexo/20210705/2185937872/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hexo/20210705/2185937872/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>乾鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。<br>既然都要建部落格了，當然要給自己一個挑戰啊!<br>經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。<br>官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…<br>即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…<br>總之這篇文章十分適合給沒什麼程式基礎的人看!</p>
+<span id="more"></span>
+
+<p><strong>本文在Window10 x64環境下架設</strong><br><strong>Hexo版本: 5.4.0，Hexo-cli版本: 4.3.0，NexT版本:7.7.2</strong></p>
+<h2 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a><font color=#FFA07A>準備工作</font></h2><ul>
+<li>了解CMD(Window:命令提示字元/Mac:終端機)的基本指令</li>
+<li>看得懂最基本的目錄(directory)和路徑(path)</li>
+<li>認識Git, Github，並註冊一個 <a target="_blank" rel="noopener" href="https://github.com/">Github帳號</a> </li>
+<li>安裝好<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a> 以及<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></li>
+<li>有一個文字編輯器，例如<a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/downloads/">notepad++</a> 或<a target="_blank" rel="noopener" href="https://www.sublimetext.com/download">sublime text</a></li>
+</ul>
+<p>這邊推薦給給大家這位大大寫的<a target="_blank" rel="noopener" href="https://lnpcd.blogspot.com/2012/07/05.html">cmd基本指令</a> ，我想初學者也能看懂<br>這裡給像我這樣的新手一個建議，平時就要整理好下載的軟件。<br>像我自己是在筆電分割出D槽，並把自己的檔案和下載的軟件分類儲存在D槽，僅供參考。</p>
+<h2 id="架設過程"><a href="#架設過程" class="headerlink" title="架設過程"></a><font color=#FFA07A>架設過程</font></h2><h3 id="Step1-前往Github並建立一個新的repository數據庫"><a href="#Step1-前往Github並建立一個新的repository數據庫" class="headerlink" title="Step1:前往Github並建立一個新的repository數據庫"></a><font color=#FFA07A>Step1:前往Github並建立一個新的repository數據庫</font></h3><p>登入你的Github帳號，進入頁面後，視窗右上角的頭像隔壁有一個”+”，點下去並再點”New repository”。</p>
+<img src="/hexo/20210705/2185937872/first-post(1).jpg" class="">
+
+
+<p>進入以下頁面後，在”Repository name”那欄輸入”github_user_name.github.io”，然後選”Public”即可，底下的選項不用選。<br><strong><font color=#FF0000>注意:</font></strong> <font color=#FF0000>“Repository name”那欄要輸入你的”github用戶名稱.github.io”，不然之後會發生錯誤</font></p>
+<img src="/hexo/20210705/2185937872/first-post(2).jpg" class="">
+
+<h3 id="Step2-安裝並建立Hexo"><a href="#Step2-安裝並建立Hexo" class="headerlink" title="Step2:安裝並建立Hexo"></a><font color=#FFA07A>Step2:安裝並建立Hexo</font></h3><p>打開命令提示字元，並輸入以下指令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>如同我在準備工作提到的:整理好自己的各種檔案，所以接下來要建立的部落格資料夾你要存在哪裡呢?<br>我自己是存在D磁碟的根目錄(root directory)下，所以我在命令提示字元安裝好Hexo後，接著輸入”d:”，如此就切換到D槽了(在命令提示字元裡，大小寫無所謂)<br>建議不要將部落格建在資料夾內。</p>
+<p>接下來建立Hexo，輸入以下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init 部落格資料夾名稱</span><br></pre></td></tr></table></figure>
+<p>如果建立成功會出現 <font color=#008000>INFO</font> Start blogging with Hexo!<br>接著為了進入到剛剛建立好的部落格資料夾，並安裝npm相關套件，所以輸入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 部落格資料夾名稱</span><br><span class="line"><span class="comment">#change directory shorts for cd</span></span><br><span class="line"></span><br><span class="line">$ npm install</span><br><span class="line"><span class="comment">#安裝npm相關套件</span></span><br></pre></td></tr></table></figure>
+<p>接著啟動Hexo，輸入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line"><span class="comment">#其實也可以輸入hexo s </span></span><br></pre></td></tr></table></figure>
+<p>點開跑出來的網址，會出現以下畫面</p>
+<img src="/hexo/20210705/2185937872/first-post(3).jpg" class="">
+
+<p>但看到這個畫面還不是終點喔!<br>因為我們現在看到的這個畫面是透過虛擬伺服器啟動的，還要連結到github!</p>
+<h3 id="Step3-部署Github"><a href="#Step3-部署Github" class="headerlink" title="Step3 部署Github"></a><font color=#FFA07A>Step3 部署Github</font></h3><p>打開命令提示字元，輸入以下指令安裝git部屬套件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>接著打開習慣使用的文字編輯器(我是用notepad++)，並打開在部落格資料夾中的_config.yml檔。<br>打開_config.yml檔後，修改110~113行資訊</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: <span class="comment">#你的repository連結，格式:https://github.com/github用戶名稱/github用戶名稱.github.io.git</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>修改5~19行的基本資訊</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: <span class="comment">#部落格名稱</span></span><br><span class="line">subtitle: <span class="comment">#副標題</span></span><br><span class="line">description: <span class="comment">#介紹網站</span></span><br><span class="line">keywords: <span class="comment">#網站關鍵字</span></span><br><span class="line">author: <span class="comment">#作者(你)名字或暱稱</span></span><br><span class="line">language: zh-TW <span class="comment">#使用語言，預設是en(英文)</span></span><br><span class="line">timezone: Asia/Taipei <span class="comment">#所在時區</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span><br><span class="line">url: http://github用戶名稱.github.io.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :category/:year:month:day/:abbrlink/ <span class="comment">#:year/:month/:day/:title/</span></span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+<p><strong><font color=#FF0000>注意:</font></strong> <font color=#FF0000>_config.yml很注重冒號後面一定要空一格</font></p>
+<h3 id="Step4-調整及部署"><a href="#Step4-調整及部署" class="headerlink" title="Step4 調整及部署"></a><font color=#FFA07A>Step4 調整及部署</font></h3><p>更動設定後，回到CMD命令提示字元輸入以下指令:(以後每一次更動設定也是如此)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment">#清除快取檔案 (db.json) 和已產生的靜態檔案 (public)。</span></span><br><span class="line">$ hexo g     <span class="comment">#generate，產生靜態檔案</span></span><br><span class="line"></span><br><span class="line">$ hexo s     <span class="comment">#server，如果不想先在本機上檢查或進行微調，可以直接輸入下一行指令</span></span><br><span class="line"></span><br><span class="line">$ hexo d     <span class="comment">#deploy，部署網站</span></span><br></pre></td></tr></table></figure>
+
+<p>我個人之後在每次更動後，都直接輸入這個指令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d  <span class="comment">#產生靜態檔案後即部署網站</span></span><br></pre></td></tr></table></figure>
+
+<p>如果命令提示字元跑完，也沒有錯誤發生的話，那恭喜你架設完成啦!<br>輸入 <a target="_blank" rel="noopener" href="https://github用戶名稱.github.io/">https://github用戶名稱.github.io/</a> ，看看你的部落格長什麼樣子吧!</p>
+<hr>
+<p>乾鹿初次架設時，就是在最後這步摔了一跤…<br>第一次發生錯誤是因為當時在github建立新的repository時，名稱沒有輸入自己的用戶名。<br>在發現是用戶名的問題前，又重新架設碰壁了幾次…<br>總之發現問題後，重新架設一遍，又是在這步卡關，我的cmd出現”fatal: unable to auto-detect email address”<br>上網查了下，發現了某位大大的解決辦法:<br>進入部落格目錄的 .deploy_git.git 子目錄，找到config檔並用文字編輯器打開。<br>打開後加入以下資訊:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">	email=<span class="comment">#輸入你註冊github的email</span></span><br><span class="line">	name=<span class="comment">#github用戶名稱</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step5-更換主題-optional"><a href="#Step5-更換主題-optional" class="headerlink" title="Step5 更換主題(optional)"></a><font color=#FFA07A>Step5 更換主題(optional)</font></h3><p>Hexo有很多主題可以選擇，可以去<a target="_blank" rel="noopener" href="https://hexo.io/themes/">官網</a> 上看看。<br>Hexo預設的主題是landscape，其實要不要更換主題看個人喜好。<br>我這次選擇的是許多人都推薦的NexT，推薦主因是其功能齊全，有markdown語法。<br>一樣，開啟cmd，切換到部落格資料夾所在位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 部落格資料夾名稱</span><br><span class="line"></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"><span class="comment">#下載NexT主題</span></span><br></pre></td></tr></table></figure>
+<p>下載完主題後，到主程式的_config.yml檔，修改theme的資訊:(覺得行數好多可以ctrl+F尋找)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next <span class="comment">#要更換的主題名稱</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step6-建立一篇新的文章"><a href="#Step6-建立一篇新的文章" class="headerlink" title="Step6 建立一篇新的文章"></a><font color=#FFA07A>Step6 建立一篇新的文章</font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt; </span><br><span class="line"><span class="comment">#layout預設是post；title盡量輸入英文</span></span><br></pre></td></tr></table></figure>
+<p>輸入完以上指令後，到”部落格資料夾\source_posts”，就可以找到你剛剛建立的文章開始編輯囉!</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><font color=#FFA07A>結論</font></h2><p>其實Hexo以及NexT主題還有許多可以更改的部分，想要知道更多玩法的話，網路上兩者的相關文章也很多。<br>在這裡推薦Ray大大寫的<a target="_blank" rel="noopener" href="https://hsiangfeng.github.io/categories/hexo/">Hexo相關文章</a> ，我的部落格設定有蠻多都是從他的網站上學習的!</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><font color=#FFA07A>References</font></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hsiangfeng.github.io/hexo/20190411/932826160/">https://hsiangfeng.github.io/hexo/20190411/932826160/</a></li>
+<li><a target="_blank" rel="noopener" href="https://hackmd.io/@king87515/Sy16ckymU">https://hackmd.io/@king87515/Sy16ckymU</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10207725">https://ithelp.ithome.com.tw/articles/10207725</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/nineya_com/article/details/103301870">https://blog.csdn.net/nineya_com/article/details/103301870</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/uncategorized/20210630/1243066710/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%96%E5%82%99%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">準備工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E8%A8%AD%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">架設過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-%E5%89%8D%E5%BE%80Github%E4%B8%A6%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E6%96%B0%E7%9A%84repository%E6%95%B8%E6%93%9A%E5%BA%AB"><span class="nav-number">2.1.</span> <span class="nav-text">Step1:前往Github並建立一個新的repository數據庫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-%E5%AE%89%E8%A3%9D%E4%B8%A6%E5%BB%BA%E7%AB%8BHexo"><span class="nav-number">2.2.</span> <span class="nav-text">Step2:安裝並建立Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-%E9%83%A8%E7%BD%B2Github"><span class="nav-number">2.3.</span> <span class="nav-text">Step3 部署Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-%E8%AA%BF%E6%95%B4%E5%8F%8A%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">Step4 調整及部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step5-%E6%9B%B4%E6%8F%9B%E4%B8%BB%E9%A1%8C-optional"><span class="nav-number">2.5.</span> <span class="nav-text">Step5 更換主題(optional)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step6-%E5%BB%BA%E7%AB%8B%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0"><span class="nav-number">2.6.</span> <span class="nav-text">Step6 建立一篇新的文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Runny Deer 乾鹿</p>
+  <div class="site-description" itemprop="description">Hi, I'm Runny Deer, a rookie exploring the world of programing and GIS!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Runny Deer 乾鹿</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=60e205bc9bcbc8c7" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://RunnyDeer.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://kiwi1210.github.io.com/hexo/20210705/2185937872/";
+    this.page.identifier = "hexo/20210705/2185937872/";
+    this.page.title = "[object Object]";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://RunnyDeer.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
