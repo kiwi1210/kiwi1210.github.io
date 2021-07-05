@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>[object Object]</title>
+    <title>初次架設Hexo+github紀錄:建立屬於自己的Blog吧!</title>
     <url>/hexo/20210705/2185937872/</url>
     <content><![CDATA[<p>乾鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。<br>既然都要建部落格了，當然要給自己一個挑戰啊!<br>經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。<br>官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…<br>即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…<br>總之這篇文章十分適合給沒什麼程式基礎的人看!</p>
 <span id="more"></span>
@@ -62,7 +62,7 @@
 
 <h3 id="Step6-建立一篇新的文章"><a href="#Step6-建立一篇新的文章" class="headerlink" title="Step6 建立一篇新的文章"></a><font color=#FFA07A>Step6 建立一篇新的文章</font></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt; </span><br><span class="line"><span class="comment">#layout預設是post；title盡量輸入英文</span></span><br></pre></td></tr></table></figure>
 <p>輸入完以上指令後，到”部落格資料夾\source_posts”，就可以找到你剛剛建立的文章開始編輯囉!</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><font color=#FFA07A>結論</font></h2><p>其實Hexo以及NexT主題還有許多可以更改的部分，想要知道更多玩法的話，網路上兩者的相關文章也很多。<br>在這裡推薦Ray大大寫的<a href="https://hsiangfeng.github.io/categories/hexo/">Hexo相關文章</a> ，我的部落格設定有蠻多都是從他的網站上學習的!</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><font color=#FFA07A>結論</font></h2><p>其實Hexo以及NexT主題還有許多可以更改的部分，想要知道更多玩法的話，網路上兩者的相關文章也很多。在這裡推薦Ray大大寫的<a href="https://hsiangfeng.github.io/categories/hexo/">Hexo相關文章</a> ，我的部落格設定有蠻多都是從他的網站上學習的!</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a><font color=#FFA07A>References</font></h2><ul>
 <li><a href="https://hsiangfeng.github.io/hexo/20190411/932826160/">https://hsiangfeng.github.io/hexo/20190411/932826160/</a></li>
 <li><a href="https://hackmd.io/@king87515/Sy16ckymU">https://hackmd.io/@king87515/Sy16ckymU</a></li>
