@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(2).jpg">
 <meta property="og:image" content="http://kiwi1210.github.io.com/hexo/20210705/2185937872/first-post(3).jpg">
 <meta property="article:published_time" content="2021-07-05T11:40:52.000Z">
-<meta property="article:modified_time" content="2021-07-05T17:09:50.793Z">
+<meta property="article:modified_time" content="2021-07-05T17:38:00.345Z">
 <meta property="article:author" content="Runny Deer 乾鹿">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-07-06 01:09:50" itemprop="dateModified" datetime="2021-07-06T01:09:50+08:00">2021-07-06</time>
+                <time title="修改時間：2021-07-06 01:38:00" itemprop="dateModified" datetime="2021-07-06T01:38:00+08:00">2021-07-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,7 +238,21 @@
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>3 分鐘</span>
+            </span>
 
         </div>
       </header>
@@ -261,14 +275,14 @@
 <li>有一個文字編輯器，例如<a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/downloads/">notepad++</a> 或<a target="_blank" rel="noopener" href="https://www.sublimetext.com/download">sublime text</a></li>
 </ul>
 <p>這邊推薦給給大家這位大大寫的<a target="_blank" rel="noopener" href="https://lnpcd.blogspot.com/2012/07/05.html">cmd基本指令</a> ，我想初學者也能看懂<br>這裡給像我這樣的新手一個建議，平時就要整理好下載的軟件。<br>像我自己是在筆電分割出D槽，並把自己的檔案和下載的軟件分類儲存在D槽，僅供參考。</p>
-<h2 id="架設過程"><a href="#架設過程" class="headerlink" title="架設過程"></a><font color=#FFA07A>架設過程</font></h2><h3 id="Step1-前往Github並建立一個新的repository數據庫"><a href="#Step1-前往Github並建立一個新的repository數據庫" class="headerlink" title="Step1:前往Github並建立一個新的repository數據庫"></a><font color=#FFA07A>Step1:前往Github並建立一個新的repository數據庫</font></h3><p>登入你的Github帳號，進入頁面後，視窗右上角的頭像隔壁有一個”+”，點下去並再點”New repository”。</p>
+<h2 id="架設過程"><a href="#架設過程" class="headerlink" title="架設過程"></a><font color=#FFA07A>架設過程</font></h2><h3 id="Step1-前往Github並建立一個新的repository數據庫"><a href="#Step1-前往Github並建立一個新的repository數據庫" class="headerlink" title="Step1 前往Github並建立一個新的repository數據庫"></a><font color=#FFA07A>Step1 前往Github並建立一個新的repository數據庫</font></h3><p>登入你的Github帳號，進入頁面後，視窗右上角的頭像隔壁有一個”+”，點下去並再點”New repository”。</p>
 <img src="/hexo/20210705/2185937872/first-post(1).jpg" class="">
 
 
 <p>進入以下頁面後，在”Repository name”那欄輸入”github_user_name.github.io”，然後選”Public”即可，底下的選項不用選。<br><strong><font color=#FF0000>注意:</font></strong> <font color=#FF0000>“Repository name”那欄要輸入你的”github用戶名稱.github.io”，不然之後會發生錯誤</font></p>
 <img src="/hexo/20210705/2185937872/first-post(2).jpg" class="">
 
-<h3 id="Step2-安裝並建立Hexo"><a href="#Step2-安裝並建立Hexo" class="headerlink" title="Step2:安裝並建立Hexo"></a><font color=#FFA07A>Step2:安裝並建立Hexo</font></h3><p>打開命令提示字元，並輸入以下指令:</p>
+<h3 id="Step2-安裝並建立Hexo"><a href="#Step2-安裝並建立Hexo" class="headerlink" title="Step2 安裝並建立Hexo"></a><font color=#FFA07A>Step2 安裝並建立Hexo</font></h3><p>打開命令提示字元，並輸入以下指令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
 <p>如同我在準備工作提到的:整理好自己的各種檔案，所以接下來要建立的部落格資料夾你要存在哪裡呢?<br>我自己是存在D磁碟的根目錄(root directory)下，所以我在命令提示字元安裝好Hexo後，接著輸入”d:”，如此就切換到D槽了(在命令提示字元裡，大小寫無所謂)<br>建議不要將部落格建在資料夾內。</p>
@@ -300,7 +314,7 @@
 <hr>
 <p>乾鹿初次架設時，就是在最後這步摔了一跤…<br>第一次發生錯誤是因為當時在github建立新的repository時，名稱沒有輸入自己的用戶名。<br>在發現是用戶名的問題前，又重新架設碰壁了幾次…<br>總之發現問題後，重新架設一遍，又是在這步卡關，我的cmd出現”fatal: unable to auto-detect email address”<br>上網查了下，發現了某位大大的解決辦法:<br>進入部落格目錄的 .deploy_git.git 子目錄，找到config檔並用文字編輯器打開。<br>打開後加入以下資訊:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">	email=<span class="comment">#輸入你註冊github的email</span></span><br><span class="line">	name=<span class="comment">#github用戶名稱</span></span><br></pre></td></tr></table></figure>
-
+<hr>
 <h3 id="Step5-更換主題-optional"><a href="#Step5-更換主題-optional" class="headerlink" title="Step5 更換主題(optional)"></a><font color=#FFA07A>Step5 更換主題(optional)</font></h3><p>Hexo有很多主題可以選擇，可以去<a target="_blank" rel="noopener" href="https://hexo.io/themes/">官網</a> 上看看。<br>Hexo預設的主題是landscape，其實要不要更換主題看個人喜好。<br>我這次選擇的是許多人都推薦的NexT，推薦主因是其功能齊全，有markdown語法。<br>一樣，開啟cmd，切換到部落格資料夾所在位置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 部落格資料夾名稱</span><br><span class="line"></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"><span class="comment">#下載NexT主題</span></span><br></pre></td></tr></table></figure>
 <p>下載完主題後，到主程式的_config.yml檔，修改theme的資訊:(覺得行數好多可以ctrl+F尋找)</p>
@@ -331,6 +345,13 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/chat/20210709/1815532527/" rel="next" title="空間資訊在學什麼?">
+      空間資訊在學什麼? <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -395,7 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%96%E5%82%99%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">準備工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E8%A8%AD%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">架設過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-%E5%89%8D%E5%BE%80Github%E4%B8%A6%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E6%96%B0%E7%9A%84repository%E6%95%B8%E6%93%9A%E5%BA%AB"><span class="nav-number">2.1.</span> <span class="nav-text">Step1:前往Github並建立一個新的repository數據庫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-%E5%AE%89%E8%A3%9D%E4%B8%A6%E5%BB%BA%E7%AB%8BHexo"><span class="nav-number">2.2.</span> <span class="nav-text">Step2:安裝並建立Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-%E9%83%A8%E7%BD%B2Github"><span class="nav-number">2.3.</span> <span class="nav-text">Step3 部署Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-%E8%AA%BF%E6%95%B4%E5%8F%8A%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">Step4 調整及部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step5-%E6%9B%B4%E6%8F%9B%E4%B8%BB%E9%A1%8C-optional"><span class="nav-number">2.5.</span> <span class="nav-text">Step5 更換主題(optional)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step6-%E5%BB%BA%E7%AB%8B%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0"><span class="nav-number">2.6.</span> <span class="nav-text">Step6 建立一篇新的文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%96%E5%82%99%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">準備工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E8%A8%AD%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">架設過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-%E5%89%8D%E5%BE%80Github%E4%B8%A6%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E6%96%B0%E7%9A%84repository%E6%95%B8%E6%93%9A%E5%BA%AB"><span class="nav-number">2.1.</span> <span class="nav-text">Step1 前往Github並建立一個新的repository數據庫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-%E5%AE%89%E8%A3%9D%E4%B8%A6%E5%BB%BA%E7%AB%8BHexo"><span class="nav-number">2.2.</span> <span class="nav-text">Step2 安裝並建立Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-%E9%83%A8%E7%BD%B2Github"><span class="nav-number">2.3.</span> <span class="nav-text">Step3 部署Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-%E8%AA%BF%E6%95%B4%E5%8F%8A%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">Step4 調整及部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step5-%E6%9B%B4%E6%8F%9B%E4%B8%BB%E9%A1%8C-optional"><span class="nav-number">2.5.</span> <span class="nav-text">Step5 更換主題(optional)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step6-%E5%BB%BA%E7%AB%8B%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0"><span class="nav-number">2.6.</span> <span class="nav-text">Step6 建立一篇新的文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,20 +430,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -454,6 +475,16 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Runny Deer 乾鹿</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">6k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">5 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>

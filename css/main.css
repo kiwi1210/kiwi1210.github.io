@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #eedfc1;
+  background: #52dae9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2582,4 +2582,18 @@ ul.breadcrumb li + li:last-child {
 .post-button .btn:hover {
   color: #000d33;
   background: #fff;
+}
+body {
+  background: url("https://source.unsplash.com/Adl90-aXYwA/1920x2560");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+.main-inner {
+  background: #fff;
+  opacity: 0.85;
+}
+.header-inner {
+  opacity: 0.85;
 }

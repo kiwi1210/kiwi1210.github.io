@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kiwi1210.github.io.com/chat/20210709/1815532527/</loc>
+    
+    <lastmod>2021-07-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kiwi1210.github.io.com/hexo/20210705/2185937872/</loc>
     
     <lastmod>2021-07-05</lastmod>
@@ -25,7 +32,7 @@
 
   <url>
     <loc>http://kiwi1210.github.io.com/</loc>
-    <lastmod>2021-07-05</lastmod>
+    <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,7 +40,21 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/hexo/</loc>
-    <lastmod>2021-07-05</lastmod>
+    <lastmod>2021-07-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/tags/GIS/</loc>
+    <lastmod>2021-07-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/tags/%E6%B1%82%E5%AD%B8%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -42,7 +63,14 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/hexo/</loc>
-    <lastmod>2021-07-05</lastmod>
+    <lastmod>2021-07-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/categories/chat/</loc>
+    <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
