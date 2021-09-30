@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-3.jpg">
 <meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg">
 <meta property="article:published_time" content="2021-07-24T04:31:43.000Z">
-<meta property="article:modified_time" content="2021-07-24T07:16:59.430Z">
+<meta property="article:modified_time" content="2021-07-24T07:31:16.459Z">
 <meta property="article:author" content="Runny Deer 乾鹿">
 <meta property="article:tag" content="CS_everywhere">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-07-24 12:31:43 / 修改時間：15:16:59" itemprop="dateCreated datePublished" datetime="2021-07-24T12:31:43+08:00">2021-07-24</time>
+              <time title="創建時間：2021-07-24 12:31:43 / 修改時間：15:31:16" itemprop="dateCreated datePublished" datetime="2021-07-24T12:31:43+08:00">2021-07-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,9 @@
 <h3 id="法四-四種方法裡最詳盡的電腦-筆電規格"><a href="#法四-四種方法裡最詳盡的電腦-筆電規格" class="headerlink" title="法四: 四種方法裡最詳盡的電腦/筆電規格"></a><font color=#FFA07A>法四: 四種方法裡最詳盡的電腦/筆電規格</font></h3><p>首先來到電腦上的本機，並點擊滑鼠右鍵，再點擊從上往下數第二個的”管理”，如下圖所示。</p>
 <img src="/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg" class="">
 <p>完成上述步驟，你會看到一個”電腦管理”的視窗。<br>若是要找容量，可以去”電腦管理\存放裝置\磁碟管理”，查看實際的電腦容量。<br>另外你會發現自己的磁碟中有一個區域叫做”EFI系統磁碟分割”，可以考慮刪掉以增加儲存空間。<br>但我自己目前還沒刪除XD 聽說很難刪。<br>若是要看電腦/筆電有幾個核心(CPU)，可以去”電腦管理\系統工具\裝置管理員”裡的”處理器”查看，你可以數有幾個CPU，通常一般文書機4~8個差不多。</p>
-<h2 id="為何廠商標示容量與實際不同"><a href="#為何廠商標示容量與實際不同" class="headerlink" title="為何廠商標示容量與實際不同?"></a><font color=#FFA07A>為何廠商標示容量與實際不同?</font></h2><p>終於回到我們的主題了，所以到底為何不同呢?<br>一般而言，微軟系統計算容量時是採用二進位制，但廠商標示是採用十進位制。<br>簡單說明一下二進位。我們習慣的十進位，會用科學記號表示，例如:2.38×10^3(=2.38×1000)。所以二進位，就是把底數換成2，例如2.38KB = 2.38×2^10 = (2.38×1024)bytes。<br>我們知道在計算機的世界裡，容量的單位<br>8bits = 1byte<br>Kilobyte: 2^10bytes=1024bytes<br>Megabyte: 2^10kilobytes=1048576bytes<br>Gigabyte: 2^10Megabytes=1073741824bytes(與10的9次方大約差了7個百分點)<br>假設我今天買了一台筆電，廠商標示256GB，那我現在換算成筆電裡的實際大小就會是:<br>256×(10^9)/1073741824 = 256×1000000000/1073741824 = 238.418579102，大約就是238GB。<br>256GB×93% = 238GB，可以驗證這樣換算大約相差7%。<br>白話文說明的話，你就想說買微軟系統的電腦/筆電，把廠商標示的容量大小在打個93折就是在微軟系統這個世界中的容量了。<br>不過你會發現你的本機磁碟只有236.7GB，通常是又扣除了一些電腦系統執行上所需的容量大小。</p>
+<h2 id="為何廠商標示容量與實際不同"><a href="#為何廠商標示容量與實際不同" class="headerlink" title="為何廠商標示容量與實際不同?"></a><font color=#FFA07A>為何廠商標示容量與實際不同?</font></h2><p>終於回到我們的主題了，所以到底為何不同呢?<br>一般而言，微軟系統計算容量時是採用二進位制，但廠商標示是採用十進位制。<br>簡單說明一下二進位。我們習慣的十進位，會用科學記號表示，例如:2.38×10^3(=2.38×1000)。所以二進位，就是把底數換成2，例如2.38KB = 2.38×2^10 = (2.38×1024)bytes。<br>我們知道在計算機的世界裡，容量的單位<br>8bits = 1byte<br>Kilobyte: 2^10bytes=1024bytes<br>Megabyte: 2^10kilobytes=1048576bytes<br>Gigabyte: 2^10Megabytes=1073741824bytes(與10的9次方大約差了7個百分點)</p>
+<p>假設我今天買了一台筆電，廠商標示256GB，那我現在換算成筆電裡的實際大小就會是:<br>256×(10^9)/1073741824 = 256×1000000000/1073741824 = 238.418579102，大約就是238GB。<br>256GB×93% = 238GB，可以驗證這樣換算大約相差7%。</p>
+<p>白話文說明的話，你就想說買微軟系統的電腦/筆電，把廠商標示的容量大小在打個93折就是在微軟系統這個世界中的容量了。不過你會發現你的本機磁碟只有大約236GB，通常是又扣除了一些電腦系統執行上所需的容量大小。</p>
 <h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><font color=#FFA07A>結論</font></h2><p>寫這篇文章之前，沒想到可以整理出四種方法可以看筆電/電腦的規格XD<br>我覺得寫學習紀錄最棒的就是可以更了解自己是否真的清楚觀念了，而且也藉由這次機會，去看看自從分割磁碟之後就沒再去過電腦管理了。</p>
 
     </div>
@@ -292,7 +294,10 @@
     <a href="/chat/20210709/1815532527/" rel="prev" title="空間資訊在學什麼?">
       <i class="fa fa-chevron-left"></i> 空間資訊在學什麼?
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/uncategorized/20210930/631532625/" rel="next" title="地理資訊科學之上課筆記1_GIS_Lecture_note">
+      地理資訊科學之上課筆記1_GIS_Lecture_note <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -372,7 +377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -422,12 +427,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">7k</span>
+    <span title="總字數">8k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9 分鐘</span>
+    <span title="所需總閱讀時間">10 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>
