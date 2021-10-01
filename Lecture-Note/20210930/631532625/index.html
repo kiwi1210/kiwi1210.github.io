@@ -20,18 +20,21 @@
     var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Hi, I&#39;m Runny Deer, a rookie exploring the world of programing and GIS!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Runny Deer">
-<meta property="og:url" content="http://kiwi1210.github.io.com/categories/chat/index.html">
+  <meta name="description" content="這系列文章為上課筆記。這一篇主要在介紹認識QGIS環境、加入(import)圖層、其餘筆記">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地理資訊科學之上課筆記1_GIS_Lecture_note">
+<meta property="og:url" content="http://kiwi1210.github.io.com/Lecture-Note/20210930/631532625/index.html">
 <meta property="og:site_name" content="Runny Deer">
-<meta property="og:description" content="Hi, I&#39;m Runny Deer, a rookie exploring the world of programing and GIS!">
+<meta property="og:description" content="這系列文章為上課筆記。這一篇主要在介紹認識QGIS環境、加入(import)圖層、其餘筆記">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-09-30T06:27:54.000Z">
+<meta property="article:modified_time" content="2021-10-01T14:59:16.520Z">
 <meta property="article:author" content="Runny Deer 乾鹿">
-<meta property="article:tag" content="Pyhton, Google Earth, GIS">
+<meta property="article:tag" content="GIS">
+<meta property="article:tag" content="上課筆記">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kiwi1210.github.io.com/categories/chat/">
+<link rel="canonical" href="http://kiwi1210.github.io.com/Lecture-Note/20210930/631532625/">
 
 
 <script id="page-configurations">
@@ -39,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>分類: 閒聊 | Runny Deer</title>
+  <title>地理資訊科學之上課筆記1_GIS_Lecture_note | Runny Deer</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
     <script>
@@ -162,57 +165,152 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/Lecture-Note/20210930/631532625/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Runny Deer 乾鹿">
+      <meta itemprop="description" content="Hi, I'm Runny Deer, a rookie exploring the world of programing and GIS!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runny Deer">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          地理資訊科學之上課筆記1_GIS_Lecture_note
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-09-30 14:27:54" itemprop="dateCreated datePublished" datetime="2021-09-30T14:27:54+08:00">2021-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-10-01 22:59:16" itemprop="dateModified" datetime="2021-10-01T22:59:16+08:00">2021-10-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lecture-Note/" itemprop="url" rel="index"><span itemprop="name">Lecture_Note</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">閒聊
-          <small>分類</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Lecture-Note/20210930/631532625/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Lecture-Note/20210930/631532625/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p>這系列文章為上課筆記。<br>這一篇主要在介紹<font color=#C53761><strong>認識QGIS環境</strong></font>、<font color=#C53761><strong>加入(import)圖層</strong></font>、<font color=#C53761><strong>其餘筆記</strong></font></p>
+<span id="more"></span>
+<p><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11</strong></p>
+<hr>
+<h2 id="認識QGIS環境"><a href="#認識QGIS環境" class="headerlink" title="認識QGIS環境"></a><font color=#FFA07A>認識QGIS環境</font></h2><p>進入QGIS環境後，可以看到畫面主要分為三個視窗。<br>左測有上下兩個視窗，上面為Browser，下方為layer，右側為主畫面。<br><strong>Browser:</strong> 類似檔案總管。<br><strong>Layers:</strong> 圖層，方框中可勾選便可在右邊主視窗中顯示該圖層。<br><strong>上排工具列:</strong><br>放大鏡/縮小鏡: 除了可用點擊放大該區域外，也可以拉一塊想放大之區域。<br><strong>狀態列(視窗下方):</strong><br>從左到右依序為: Coordinate(座標)、Scale(比例尺)、Magnifier(放大縮小比例)、Rotation(旋轉角度)、Render、座標系統。</p>
+<h2 id="加入-import-圖層"><a href="#加入-import-圖層" class="headerlink" title="加入(import)圖層"></a><font color=#FFA07A>加入(import)圖層</font></h2><p>上課有介紹三種方式匯入圖層:<br>可以參考<a target="_blank" rel="noopener" href="https://wenlab501.github.io/tutorial/qgis_tutor/basic_workflow/insert_layer/">此網站</a><br>QGIS 的加入圖層可以分成各種不同的資料來源，其中WMS/WMTS資料，老師介紹台灣兩個公開地圖資源:<br>介接國土測繪圖資服務雲WMTS: <a target="_blank" rel="noopener" href="https://wmts.nlsc.gov.tw/97/wmts">https://wmts.nlsc.gov.tw/97/wmts</a><br>中央研究院 WMTS 服務網址: <a target="_blank" rel="noopener" href="https://gis.sinica.edu.tw/tileserver/wmts">https://gis.sinica.edu.tw/tileserver/wmts</a><br>點選Browser視窗中之WMS/WMTS，按滑鼠右鍵選擇<strong>New Connection</strong>，並在出現的視窗中輸入名字和網址即可。</p>
+<h2 id="其餘筆記"><a href="#其餘筆記" class="headerlink" title="其餘筆記"></a><font color=#FFA07A>其餘筆記</font></h2><ul>
+<li>在layer中，滑鼠右鍵點擊圖層，有一排功能鍵可以選取，此堂課介紹其中兩個。</li>
+<li><strong>Properties:</strong> 可看此圖層基本資料或調整透明度等。</li>
+<li><strong>Open attribute table:</strong> 觀看此圖層之屬性資料。(向量式資料一定有屬性資料，網格式資料不一定)<br>在點開圖層之屬性資料後，可以點選欲顯示之資料(一列通常就是一筆資料)，上排工具列中有一個<strong>Zoom map to the selected rows</strong>，按下後圖層就會放大那筆資料所在區域且用特定顏色標示。</li>
+<li>feature: 圖徵</li>
+<li>點陣圖=網狀式資料</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-09T17:13:31+08:00"
-              content="2021-07-09">
-          07-09
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GIS/" rel="tag"># GIS</a>
+              <a href="/tags/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" rel="tag"># 上課筆記</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/chat/20210709/1815532527/" itemprop="url">
-            <span itemprop="name">空間資訊在學什麼?</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/CS-everywhere/20210724/975940166/" rel="prev" title="3C產品標示容量為什麼和實際上不一樣?">
+      <i class="fa fa-chevron-left"></i> 3C產品標示容量為什麼和實際上不一樣?
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Lecture-Note/20210930/2781543851/" rel="next" title="地理資訊科學之上課筆記2_GIS_Lecture_note2">
+      地理資訊科學之上課筆記2_GIS_Lecture_note2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -259,6 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%8D%E8%AD%98QGIS%E7%92%B0%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">認識QGIS環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5-import-%E5%9C%96%E5%B1%A4"><span class="nav-number">2.</span> <span class="nav-text">加入(import)圖層</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E9%A4%98%E7%AD%86%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text">其餘筆記</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -415,6 +514,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://kiwi1210.github.io.com/Lecture-Note/20210930/631532625/";
+    this.page.identifier = "Lecture-Note/20210930/631532625/";
+    this.page.title = "地理資訊科學之上課筆記1_GIS_Lecture_note";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://RunnyDeer.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

@@ -20,25 +20,21 @@
     var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="“我的筆電規格，容量明明標示256GB，為什麼實際上只有236GB?!”相信有些人一定會有這個疑問吧! 那麼就來一探究竟吧!在這篇文章你可以看到: 如何得知筆電&#x2F;電腦的基本規格以及為何廠商標示容量與實際不同。">
+  <meta name="description" content="這系列文章為上課筆記。這一篇主要在介紹網格式資料 VS. 向量式資料、檔案格式、認識ArcGIS、今日實作:計算面積">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3C產品標示容量為什麼和實際上不一樣?">
-<meta property="og:url" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/index.html">
+<meta property="og:title" content="地理資訊科學之上課筆記2_GIS_Lecture_note2">
+<meta property="og:url" content="http://kiwi1210.github.io.com/Lecture-Note/20210930/2781543851/index.html">
 <meta property="og:site_name" content="Runny Deer">
-<meta property="og:description" content="“我的筆電規格，容量明明標示256GB，為什麼實際上只有236GB?!”相信有些人一定會有這個疑問吧! 那麼就來一探究竟吧!在這篇文章你可以看到: 如何得知筆電&#x2F;電腦的基本規格以及為何廠商標示容量與實際不同。">
+<meta property="og:description" content="這系列文章為上課筆記。這一篇主要在介紹網格式資料 VS. 向量式資料、檔案格式、認識ArcGIS、今日實作:計算面積">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-2.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-3.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg">
-<meta property="article:published_time" content="2021-07-24T04:31:43.000Z">
-<meta property="article:modified_time" content="2021-07-24T07:31:16.459Z">
+<meta property="article:published_time" content="2021-09-30T09:16:50.000Z">
+<meta property="article:modified_time" content="2021-10-01T14:54:48.120Z">
 <meta property="article:author" content="Runny Deer 乾鹿">
-<meta property="article:tag" content="CS_everywhere">
+<meta property="article:tag" content="GIS">
+<meta property="article:tag" content="上課筆記">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/cs-everywhere-2.jpg">
 
-<link rel="canonical" href="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/">
+<link rel="canonical" href="http://kiwi1210.github.io.com/Lecture-Note/20210930/2781543851/">
 
 
 <script id="page-configurations">
@@ -51,7 +47,7 @@
   };
 </script>
 
-  <title>3C產品標示容量為什麼和實際上不一樣? | Runny Deer</title>
+  <title>地理資訊科學之上課筆記2_GIS_Lecture_note2 | Runny Deer</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
     <script>
@@ -176,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/">
+    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/Lecture-Note/20210930/2781543851/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          3C產品標示容量為什麼和實際上不一樣?
+          地理資訊科學之上課筆記2_GIS_Lecture_note2
         </h1>
 
         <div class="post-meta">
@@ -198,17 +194,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-07-24 12:31:43 / 修改時間：15:31:16" itemprop="dateCreated datePublished" datetime="2021-07-24T12:31:43+08:00">2021-07-24</time>
+              <time title="創建時間：2021-09-30 17:16:50" itemprop="dateCreated datePublished" datetime="2021-09-30T17:16:50+08:00">2021-09-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-10-01 22:54:48" itemprop="dateModified" datetime="2021-10-01T22:54:48+08:00">2021-10-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS-everywhere/" itemprop="url" rel="index"><span itemprop="name">生活中的計算機</span></a>
+                  <a href="/categories/Lecture-Note/" itemprop="url" rel="index"><span itemprop="name">Lecture_Note</span></a>
                 </span>
             </span>
 
@@ -228,8 +230,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/CS-everywhere/20210724/975940166/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="CS-everywhere/20210724/975940166/" itemprop="commentCount"></span>
+    <a title="disqus" href="/Lecture-Note/20210930/2781543851/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Lecture-Note/20210930/2781543851/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,7 +241,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>2 分鐘</span>
+              <span>1 分鐘</span>
             </span>
 
         </div>
@@ -251,28 +253,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>“我的筆電規格，容量明明標示256GB，為什麼實際上只有236GB?!”<br>相信有些人一定會有這個疑問吧! 那麼就來一探究竟吧!<br>在這篇文章你可以看到: <font color=#C53761><strong>如何得知筆電/電腦的基本規格</strong></font>以及<font color=#C53761><strong>為何廠商標示容量與實際不同</strong></font>。</p>
+        <p>這系列文章為上課筆記。<br>這一篇主要在介紹<font color=#C53761><strong>網格式資料 VS. 向量式資料</strong></font>、<font color=#C53761><strong>檔案格式</strong></font>、<font color=#C53761><strong>認識ArcGIS</strong></font>、<font color=#C53761><strong>今日實作:計算面積</strong></font></p>
 <span id="more"></span>
-<p><strong>本文在Window10 x64環境下操作</strong></p>
+<p><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8</strong></p>
 <hr>
-<h2 id="如何得知筆電-電腦的基本規格"><a href="#如何得知筆電-電腦的基本規格" class="headerlink" title="如何得知筆電/電腦的基本規格"></a><font color=#FFA07A>如何得知筆電/電腦的基本規格</font></h2><p>P.s.要查詢容量請直接看法三和法四。</p>
-<h3 id="法一-檢視系統中的”關於”"><a href="#法一-檢視系統中的”關於”" class="headerlink" title="法一: 檢視系統中的”關於”"></a><font color=#FFA07A>法一: 檢視系統中的”關於”</font></h3><p>首先點擊左下角的微軟符號(或是點鍵盤上Ctrl和Alt之間的Windows鍵)，接著按設定(其符號為齒輪，在電源上方)，就會進入以下畫面。</p>
-<img src="/CS-everywhere/20210724/975940166/cs-everywhere-2.jpg" class="">
-<p>接著再點擊左上角的”系統”。<br>進入下個畫面後，至左列那一排滑到最下方，看到”關於”即可點擊，此時你就可以看到自己筆電/電腦的裝置規格和Windows規格了。</p>
-<h3 id="法二-檢視電腦中的基本資訊"><a href="#法二-檢視電腦中的基本資訊" class="headerlink" title="法二: 檢視電腦中的基本資訊"></a><font color=#FFA07A>法二: 檢視電腦中的基本資訊</font></h3><p>法三步驟比法二更少。<br>首先到電腦中的”本機”，點擊滑鼠右鍵，再點擊最下方的”內容”就結束囉，也是可以看到跟法一差不多的筆電/電腦的裝置規格和Windows規格。</p>
-<img src="/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg" class="">
-<hr>
-<p>不過法一和法二依然沒能看到容量啊! 所以我們就來到法三和法四了~</p>
-<h3 id="法三-計算本機磁碟的空間大小"><a href="#法三-計算本機磁碟的空間大小" class="headerlink" title="法三: 計算本機磁碟的空間大小"></a><font color=#FFA07A>法三: 計算本機磁碟的空間大小</font></h3><p><strong><font color=#FF0000>注意:</font></strong> <font color=#FF0000>法三只是幫你看個大概容量，並不精準喔!</font><br>首先到電腦中的”本機”，下滑到裝置與磁碟機區域。<br>把本機磁碟的”大小總計”那一欄相加即可。以下方圖片舉例，它的總空間大小是236.7GB(164GB+72.7GB)。</p>
-<img src="/CS-everywhere/20210724/975940166/cs-everywhere-3.jpg" class="">
-
-<h3 id="法四-四種方法裡最詳盡的電腦-筆電規格"><a href="#法四-四種方法裡最詳盡的電腦-筆電規格" class="headerlink" title="法四: 四種方法裡最詳盡的電腦/筆電規格"></a><font color=#FFA07A>法四: 四種方法裡最詳盡的電腦/筆電規格</font></h3><p>首先來到電腦上的本機，並點擊滑鼠右鍵，再點擊從上往下數第二個的”管理”，如下圖所示。</p>
-<img src="/CS-everywhere/20210724/975940166/cs-everywhere-1.jpg" class="">
-<p>完成上述步驟，你會看到一個”電腦管理”的視窗。<br>若是要找容量，可以去”電腦管理\存放裝置\磁碟管理”，查看實際的電腦容量。<br>另外你會發現自己的磁碟中有一個區域叫做”EFI系統磁碟分割”，可以考慮刪掉以增加儲存空間。<br>但我自己目前還沒刪除XD 聽說很難刪。<br>若是要看電腦/筆電有幾個核心(CPU)，可以去”電腦管理\系統工具\裝置管理員”裡的”處理器”查看，你可以數有幾個CPU，通常一般文書機4~8個差不多。</p>
-<h2 id="為何廠商標示容量與實際不同"><a href="#為何廠商標示容量與實際不同" class="headerlink" title="為何廠商標示容量與實際不同?"></a><font color=#FFA07A>為何廠商標示容量與實際不同?</font></h2><p>終於回到我們的主題了，所以到底為何不同呢?<br>一般而言，微軟系統計算容量時是採用二進位制，但廠商標示是採用十進位制。<br>簡單說明一下二進位。我們習慣的十進位，會用科學記號表示，例如:2.38×10^3(=2.38×1000)。所以二進位，就是把底數換成2，例如2.38KB = 2.38×2^10 = (2.38×1024)bytes。<br>我們知道在計算機的世界裡，容量的單位<br>8bits = 1byte<br>Kilobyte: 2^10bytes=1024bytes<br>Megabyte: 2^10kilobytes=1048576bytes<br>Gigabyte: 2^10Megabytes=1073741824bytes(與10的9次方大約差了7個百分點)</p>
-<p>假設我今天買了一台筆電，廠商標示256GB，那我現在換算成筆電裡的實際大小就會是:<br>256×(10^9)/1073741824 = 256×1000000000/1073741824 = 238.418579102，大約就是238GB。<br>256GB×93% = 238GB，可以驗證這樣換算大約相差7%。</p>
-<p>白話文說明的話，你就想說買微軟系統的電腦/筆電，把廠商標示的容量大小在打個93折就是在微軟系統這個世界中的容量了。不過你會發現你的本機磁碟只有大約236GB，通常是又扣除了一些電腦系統執行上所需的容量大小。</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><font color=#FFA07A>結論</font></h2><p>寫這篇文章之前，沒想到可以整理出四種方法可以看筆電/電腦的規格XD<br>我覺得寫學習紀錄最棒的就是可以更了解自己是否真的清楚觀念了，而且也藉由這次機會，去看看自從分割磁碟之後就沒再去過電腦管理了。</p>
+<h2 id="網格式資料-VS-向量式資料"><a href="#網格式資料-VS-向量式資料" class="headerlink" title="網格式資料 VS. 向量式資料"></a><font color=#FFA07A>網格式資料 VS. 向量式資料</font></h2><p>網格式資料在放大時有明顯的鋸齒狀。<br>向量式資料每次縮放後，都會重新描點畫線，因此展現出平滑的線條。<br>由於向量式資料只需要輸入轉折點的xy座標，而網格是每一格都需填入資料(且網隔越小精確度越高)，因此網格式的資料量會比向量式大。</p>
+<h2 id="檔案格式"><a href="#檔案格式" class="headerlink" title="檔案格式"></a><font color=#FFA07A>檔案格式</font></h2><p>屬性資料:dbf<br>空間資料:shp(shapefile一定是向量式資料)<br>空間索引、連結上述資料:shx<br>擁有不同解析度的圖層檔: ovr<br>紀錄座標:tfw<br>ArcGIS檔名:aprx<br>WGS是GPS預設檔案<br>JPG通常預設壓縮，因此會影響影像品質；而tif檔通常預設不壓縮檔案。</p>
+<h2 id="認識ArcGIS"><a href="#認識ArcGIS" class="headerlink" title="認識ArcGIS"></a><font color=#FFA07A>認識ArcGIS</font></h2><p>一進入ArcGIS，正中間的主視窗就已經呈現預設的兩個圖層了(World Topographic Map和World Hillshade)。<br>想增加新圖層，可以直接拖拉檔案到位在左側的窗格<strong>Content</strong>之<strong>Map</strong>下方。<br>跟QGIS一樣，點擊滑鼠右鍵，並按<strong>Properties</strong>，一樣可以看到此圖層之基本資料；若是按<strong>Attribute Table</strong>則是會出現屬性資料。</p>
+<h2 id="今日實作-計算面積"><a href="#今日實作-計算面積" class="headerlink" title="今日實作:計算面積"></a><font color=#FFA07A>今日實作:計算面積</font></h2><p>本次實作使用之圖層為WGS84之縣市界圖層。(可搭配隨堂練習裡的截圖，會更清楚易懂此次操作)<br>按滑鼠右鍵點擊<strong>Attribute Table</strong>後，主視窗下方會出現其屬性資料的窗格。<br>點擊此窗格左上角之<strong>Add</strong>。<strong>Field Name</strong>那一行打Area；<strong>Data Type</strong>選擇double。<br>完成後會發現屬性資料窗格已經有Area這一行，但資料卻都顯示為零，所以接著要計算面積。<br>滑鼠右鍵點擊Area，按<strong>Calculate Geometry</strong>後，會出現視窗，接著選擇欲計算的事物(此例為Area(geometry))、單位(Square Kilometers)、座標系統(TWD 1997 TM Taiwan)等。<br>按ok後，就會發現Area那一行現在有計算好的面積了。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a><font color=#FFA07A>其他</font></h2><ul>
+<li><p>image pyramid(可以搜尋圖片)<br>1:32<br>1:16<br>1:8<br>1:4<br>1:2</p>
+</li>
+<li><p>Geographic Coordinate System是球面的；Projected Coordinate System是平面的。</p>
+</li>
+<li><p>ArcGIS專案(Projects)皆儲存在C:\Users\Username\Documents\ArcGIS\Projects</p>
+</li>
+</ul>
 
     </div>
 
@@ -282,7 +278,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/CS-everywhere/" rel="tag"># CS_everywhere</a>
+              <a href="/tags/GIS/" rel="tag"># GIS</a>
+              <a href="/tags/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/" rel="tag"># 上課筆記</a>
           </div>
 
         
@@ -291,13 +288,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/chat/20210709/1815532527/" rel="prev" title="空間資訊在學什麼?">
-      <i class="fa fa-chevron-left"></i> 空間資訊在學什麼?
+    <a href="/Lecture-Note/20210930/631532625/" rel="prev" title="地理資訊科學之上課筆記1_GIS_Lecture_note">
+      <i class="fa fa-chevron-left"></i> 地理資訊科學之上課筆記1_GIS_Lecture_note
     </a></div>
-      <div class="post-nav-item">
-    <a href="/Lecture-Note/20210930/631532625/" rel="next" title="地理資訊科學之上課筆記1_GIS_Lecture_note">
-      地理資訊科學之上課筆記1_GIS_Lecture_note <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -363,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BE%97%E7%9F%A5%E7%AD%86%E9%9B%BB-%E9%9B%BB%E8%85%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%8F%E6%A0%BC"><span class="nav-number">1.</span> <span class="nav-text">如何得知筆電&#x2F;電腦的基本規格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E4%B8%80-%E6%AA%A2%E8%A6%96%E7%B3%BB%E7%B5%B1%E4%B8%AD%E7%9A%84%E2%80%9D%E9%97%9C%E6%96%BC%E2%80%9D"><span class="nav-number">1.1.</span> <span class="nav-text">法一: 檢視系統中的”關於”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E4%BA%8C-%E6%AA%A2%E8%A6%96%E9%9B%BB%E8%85%A6%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%B3%87%E8%A8%8A"><span class="nav-number">1.2.</span> <span class="nav-text">法二: 檢視電腦中的基本資訊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E4%B8%89-%E8%A8%88%E7%AE%97%E6%9C%AC%E6%A9%9F%E7%A3%81%E7%A2%9F%E7%9A%84%E7%A9%BA%E9%96%93%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.3.</span> <span class="nav-text">法三: 計算本機磁碟的空間大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E5%9B%9B-%E5%9B%9B%E7%A8%AE%E6%96%B9%E6%B3%95%E8%A3%A1%E6%9C%80%E8%A9%B3%E7%9B%A1%E7%9A%84%E9%9B%BB%E8%85%A6-%E7%AD%86%E9%9B%BB%E8%A6%8F%E6%A0%BC"><span class="nav-number">1.4.</span> <span class="nav-text">法四: 四種方法裡最詳盡的電腦&#x2F;筆電規格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BD%95%E5%BB%A0%E5%95%86%E6%A8%99%E7%A4%BA%E5%AE%B9%E9%87%8F%E8%88%87%E5%AF%A6%E9%9A%9B%E4%B8%8D%E5%90%8C"><span class="nav-number">2.</span> <span class="nav-text">為何廠商標示容量與實際不同?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B6%B2%E6%A0%BC%E5%BC%8F%E8%B3%87%E6%96%99-VS-%E5%90%91%E9%87%8F%E5%BC%8F%E8%B3%87%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">網格式資料 VS. 向量式資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">檔案格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%8D%E8%AD%98ArcGIS"><span class="nav-number">3.</span> <span class="nav-text">認識ArcGIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8A%E6%97%A5%E5%AF%A6%E4%BD%9C-%E8%A8%88%E7%AE%97%E9%9D%A2%E7%A9%8D"><span class="nav-number">4.</span> <span class="nav-text">今日實作:計算面積</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -523,9 +517,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/";
-    this.page.identifier = "CS-everywhere/20210724/975940166/";
-    this.page.title = "3C產品標示容量為什麼和實際上不一樣?";
+    this.page.url = "http://kiwi1210.github.io.com/Lecture-Note/20210930/2781543851/";
+    this.page.identifier = "Lecture-Note/20210930/2781543851/";
+    this.page.title = "地理資訊科學之上課筆記2_GIS_Lecture_note2";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
