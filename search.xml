@@ -414,4 +414,119 @@
         <tag>上課筆記</tag>
       </tags>
   </entry>
+  <entry>
+    <title>HTML5 Tag List(progressing...)</title>
+    <url>/uncategorized/20211007/3860190997/</url>
+    <content><![CDATA[<p>The list below is the <font color=#C53761><strong>HTML5 tags</strong></font> I have learned so far.<br>Self-learning on <strong><a href="https://www.freecodecamp.org/learn/responsive-web-design/">freecodecamp</a></strong>, you can get there for more information.</p>
+<span id="more"></span>
+<h2 id="HTML5-Tag-List"><a href="#HTML5-Tag-List" class="headerlink" title="HTML5 Tag List"></a><font color=#FFA07A>HTML5 Tag List</font></h2><p><strong>Remember adding forward slash in the closing tag!</strong><br><font color=#DE3163><strong>Elements</strong></font>, <font color=#DE3163><strong>Attributes</strong></font>, <font color=#7AC073><strong>txt</strong></font></p>
+<table>
+<thead>
+<tr>
+<th>Tags</th>
+<th>Discription</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;<font color=#DE3163>H1</font>&gt;~&lt;<font color=#DE3163>H6</font>&gt;</td>
+<td>Different levels of (sub)headings</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>p</font>&gt;…&lt;<font color=#DE3163>/p</font>&gt;</td>
+<td>For paragraph text on websites</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;!- -…- -&gt;</td>
+<td>Comment</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>main</font>&gt;…&lt;<font color=#DE3163>/main</font>&gt;</td>
+<td>Main content</td>
+<td>Helps search engines and other developers find the main content of your page</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>img src</font>=&quot;…&quot; <font color=#DE3163>alt</font>=&quot;&quot;&gt;</td>
+<td>Add images</td>
+<td><font color=#DE3163>img</font>&lt;-element; <font color=#DE3163>src,alt</font>&lt;-attribute. <font color=#DE3163>img</font> elements are self-closing. An <font color=#DE3163>alt</font> attribute is used for screen readers to improve accessibility and is displayed if the image fails to load.</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>a href</font> = &quot;<font color=#7AC073>URL</font>&quot;&gt; anchor text &lt;<font color=#DE3163>/a</font>&gt;</td>
+<td>External Link</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>a href</font> = &quot;<font color=#7AC073>#id</font>&quot;&gt; anchor text &lt;<font color=#DE3163>/a</font>&gt;</td>
+<td>Internal Link</td>
+<td>Need to add the same id attribute to the element you are linking to.</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>a href</font> = &quot;<font color=#7AC073>URL</font>&quot; <font color=#DE3163>target</font>=&quot;<font color=#7AC073>_blank</font>&quot;&gt; anchor text &lt;<font color=#DE3163>/a</font>&gt;</td>
+<td>Nest links within other text elements</td>
+<td><font color=#DE3163>target</font> is an anchor tag attribute that specifies where to open the link. The value <font color=#7AC073>_blank</font> specifies to open the link in a new tab.</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>a href</font> = &quot;<font color=#7AC073>#</font>&quot;&gt; anchor text &lt;<font color=#DE3163>/a</font>&gt;</td>
+<td>Create a dead Link</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>a href</font> = &quot;…&quot;&gt;&lt;<font color=#DE3163>img src</font>=&quot;<font color=#7AC073>URL</font>&quot; <font color=#DE3163>alt</font>=&quot;…&quot;&gt; &lt;<font color=#DE3163>/a</font>&gt;</td>
+<td>Make elements into links by nesting them (eg.image)</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>ul</font>&gt;…&lt;<font color=#DE3163>/ul</font>&gt;</td>
+<td>The unordered list element</td>
+<td>Unordered lists start with an opening &lt;<font color=#DE3163>ul</font>&gt; element, followed by any number of &lt;<font color=#DE3163>li</font>&gt;…&lt;<font color=#DE3163>/li</font>&gt; elements.</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>ol</font>&gt;…&lt;<font color=#DE3163>/ol</font>&gt;</td>
+<td>The ordered lists/numbered lists</td>
+<td>Ordered lists start with an opening &lt;<font color=#DE3163>ol</font>&gt; element, followed by any number of &lt;<font color=#DE3163>li</font>&gt;…&lt;<font color=#DE3163>/li</font>&gt; elements.</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>input type</font>=&quot;…&quot; <font color=#DE3163>id</font>=&quot; &quot; <font color=#DE3163>name</font>=&quot; &quot;&gt;</td>
+<td>Input</td>
+<td>Several types such as <font color=#7AC073>email search tel url number range</font>, for more info: <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types">1</a> <a href="https://www.w3schools.com/html/html_form_input_types.asp">2</a></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>input type</font>=&quot;<font color=#7AC073>text</font>&quot; <font color=#DE3163>placeholder</font>=&quot;<font color=#7AC073>txt</font>&quot;&gt;</td>
+<td>Displayed in your input element before your user has inputted anything</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>input type</font>=&quot;<font color=#7AC073>text</font>&quot; <font color=#DE3163>required</font>&gt;</td>
+<td>Require specific form field (eg.text)</td>
+<td>Users must complete the requirements in the field, or they cannot submit the form</td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>form action</font>=&quot;<font color=#7AC073>URL</font>&quot;&gt;…&lt;<font color=#DE3163>/form</font>&gt;</td>
+<td>Create a form element</td>
+<td><font color=#DE3161>action</font> defines which URL the form’s information is sent to when submitted. For more info: <a href="https://htmlreference.io/forms/">click me</a></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>button type</font>=&quot;…&quot;&gt; button_text &lt;<font color=#DE3163>/button</font>&gt;</td>
+<td>Add a button</td>
+<td>Several types like <font color=#7AC073>button reset submit</font>, for more info: <a href="https://www.w3school.com.cn/tags/tag_button.asp">click me</a></td>
+</tr>
+<tr>
+<td>&lt;<font color=#DE3163>label for</font>=&quot;<font color=#7AC073>choice_name</font>&quot;&gt;<br>&lt;<font color=#DE3163>input id</font>=&quot;<font color=#7AC073>choice_name</font>&quot; <font color=#DE3163>type</font>=&quot;<font color=#7AC073>radio</font>&quot; <font color=#DE3163>name</font>=&quot;<font color=#7AC073>…</font>&quot; choice_name<br>&lt;<font color=#DE3163>/label</font>&gt;</td>
+<td>Create radio button (multiple choices)</td>
+<td></td>
+</tr>
+</tbody></table>
+<label for="indoor"> 
+  <input id="indoor" type="radio" name="indoor-outdoor">Indoor 
+</label>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><font color=#FFA07A>References</font></h2><ul>
+<li><a href="https://www.freecodecamp.org/learn/responsive-web-design/">https://www.freecodecamp.org/learn/responsive-web-design/</a></li>
+<li><a href="https://w3.iams.sinica.edu.tw/lab/wbtzeng/lifeinfo/html_use.htm">https://w3.iams.sinica.edu.tw/lab/wbtzeng/lifeinfo/html_use.htm</a></li>
+</ul>
+]]></content>
+  </entry>
 </search>
