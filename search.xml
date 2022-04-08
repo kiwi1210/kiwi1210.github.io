@@ -3,7 +3,7 @@
   <entry>
     <title>初次架設Hexo+github紀錄:建立屬於自己的Blog吧!</title>
     <url>/hexo/20210705/2185937872/</url>
-    <content><![CDATA[<p>乾鹿我剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。<br>既然都要建部落格了，當然要給自己一個挑戰啊!<br>經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。<br>官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…<br>即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…<br>總之這篇文章十分適合給沒什麼程式基礎的人看!</p>
+    <content><![CDATA[<p>剛接觸程式不久，想要有一個紀錄學習筆記的地方，於是決定藉此機會建立一個部落格。<br>既然都要建部落格了，當然要給自己一個挑戰啊!<br>經過上網爬文後，選了一個給程式菜雞些微難度的Hexo，一個網誌框架。<br>官網上表示Hexo快速、簡單且強大(對菜雞而言還是有挑戰的…<br>即使已經參閱過無數個他人的成功經驗，架設Hexo之路依然顛頗…<br>總之這篇文章十分適合給沒什麼程式基礎的人看!</p>
 <span id="more"></span>
 
 <p><strong>本文在Window10 x64環境下架設</strong><br><strong>Hexo版本: 5.4.0，Hexo-cli版本: 4.3.0，NexT版本:7.7.2</strong></p>
@@ -12,7 +12,7 @@
 <li>看得懂最基本的目錄(directory)和路徑(path)</li>
 <li>認識Git, Github，並註冊一個 <a href="https://github.com/">Github帳號</a> </li>
 <li>安裝好<a href="https://git-scm.com/downloads">Git</a> 以及<a href="https://nodejs.org/en/">Node.js</a></li>
-<li>有一個文字編輯器，例如<a href="https://notepad-plus-plus.org/downloads/">notepad++</a> 或<a href="https://www.sublimetext.com/download">sublime text</a></li>
+<li>有一個文字編輯器，例如<a href="https://notepad-plus-plus.org/downloads/">notepad++</a>，<a href="https://www.sublimetext.com/download">sublime text</a>，或是<a href="https://code.visualstudio.com/">VSCode</a></li>
 </ul>
 <p>這邊推薦給給大家這位大大寫的<a href="https://lnpcd.blogspot.com/2012/07/05.html">cmd基本指令</a> ，我想初學者也能看懂<br>這裡給像我這樣的新手一個建議，平時就要整理好下載的軟件。<br>像我自己是在筆電分割出D槽，並把自己的檔案和下載的軟件分類儲存在D槽，僅供參考。</p>
 <h2 id="架設過程"><a href="#架設過程" class="headerlink" title="架設過程"></a><font color=#FFA07A>架設過程</font></h2><h3 id="Step1-前往Github並建立一個新的repository數據庫"><a href="#Step1-前往Github並建立一個新的repository數據庫" class="headerlink" title="Step1 前往Github並建立一個新的repository數據庫"></a><font color=#FFA07A>Step1 前往Github並建立一個新的repository數據庫</font></h3><p>登入你的Github帳號，進入頁面後，視窗右上角的頭像隔壁有一個”+”，點下去並再點”New repository”。</p>
@@ -39,7 +39,7 @@
 <h3 id="Step3-部署Github"><a href="#Step3-部署Github" class="headerlink" title="Step3 部署Github"></a><font color=#FFA07A>Step3 部署Github</font></h3><p>打開命令提示字元，輸入以下指令安裝git部屬套件:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<p>接著打開習慣使用的文字編輯器(我是用notepad++)，並打開在部落格資料夾中的_config.yml檔。<br>打開_config.yml檔後，修改110~113行資訊</p>
+<p>接著打開習慣使用的文字編輯器(我是用notepad++；更:現已改成VSCode)，並打開在部落格資料夾中的_config.yml檔。<br>打開_config.yml檔後，修改110~113行資訊</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: <span class="comment">#你的repository連結，格式:https://github.com/github用戶名稱/github用戶名稱.github.io.git</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>修改5~19行的基本資訊</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: <span class="comment">#部落格名稱</span></span><br><span class="line">subtitle: <span class="comment">#副標題</span></span><br><span class="line">description: <span class="comment">#介紹網站</span></span><br><span class="line">keywords: <span class="comment">#網站關鍵字</span></span><br><span class="line">author: <span class="comment">#作者(你)名字或暱稱</span></span><br><span class="line">language: zh-TW <span class="comment">#使用語言，預設是en(英文)</span></span><br><span class="line">timezone: Asia/Taipei <span class="comment">#所在時區</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span><br><span class="line">url: http://github用戶名稱.github.io.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :category/:year:month:day/:abbrlink/ <span class="comment">#:year/:month/:day/:title/</span></span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
@@ -52,7 +52,7 @@
 
 <p>如果命令提示字元跑完，也沒有錯誤發生的話，那恭喜你架設完成啦!<br>輸入 <a href="https://github用戶名稱.github.io/">https://github用戶名稱.github.io/</a> ，看看你的部落格長什麼樣子吧!</p>
 <hr>
-<p>乾鹿初次架設時，就是在最後這步摔了一跤…<br>第一次發生錯誤是因為當時在github建立新的repository時，名稱沒有輸入自己的用戶名。<br>在發現是用戶名的問題前，又重新架設碰壁了幾次…<br>總之發現問題後，重新架設一遍，又是在這步卡關，我的cmd出現”fatal: unable to auto-detect email address”<br>上網查了下，發現了某位大大的解決辦法:<br>進入部落格目錄的 .deploy_git.git 子目錄，找到config檔並用文字編輯器打開。<br>打開後加入以下資訊:</p>
+<p>初次架設時，就是在最後這步摔了一跤…<br>第一次發生錯誤是因為當時在github建立新的repository時，名稱沒有輸入自己的用戶名。<br>在發現是用戶名的問題前，又重新架設碰壁了幾次…<br>總之發現問題後，重新架設一遍，又是在這步卡關，我的cmd出現”fatal: unable to auto-detect email address”<br>上網查了下，發現了某位大大的解決辦法:<br>進入部落格目錄的 .deploy_git.git 子目錄，找到config檔並用文字編輯器打開。<br>打開後加入以下資訊:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">	email=<span class="comment">#輸入你註冊github的email</span></span><br><span class="line">	name=<span class="comment">#github用戶名稱</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="Step5-更換主題-optional"><a href="#Step5-更換主題-optional" class="headerlink" title="Step5 更換主題(optional)"></a><font color=#FFA07A>Step5 更換主題(optional)</font></h3><p>Hexo有很多主題可以選擇，可以去<a href="https://hexo.io/themes/">官網</a> 上看看。<br>Hexo預設的主題是landscape，其實要不要更換主題看個人喜好。<br>我這次選擇的是許多人都推薦的NexT，推薦主因是其功能齊全，有markdown語法。<br>一樣，開啟cmd，切換到部落格資料夾所在位置</p>
@@ -81,7 +81,7 @@
     <title>空間資訊在學什麼?</title>
     <url>/chat/20210709/1815532527/</url>
     <content><![CDATA[<p>這篇文章適合給想考空間資訊相關科系的高中生或大學生參考~<br>在這篇文章你可以看到: <font color=#C53761><strong>空間資訊會修的課程</strong></font>以及我對於<font color=#C53761><strong>目前修過課程之心得</strong></font>。<br><strong>以下是個人分析，僅供參考；確切資訊還請搜尋該科系網址或是寫email詢問助教</strong></p>
-<p>不知道有多少人跟乾鹿一樣，在高中時對地理十分有興趣想了解地理資訊(GIS)相關資訊。<br>但google後得到的資訊實在頗少…應該說是可以學到空間資訊這個技術的大學不算太少，可是他們的科系名稱和教學重心都不大相同…</p>
+<p>不知道有多少人跟我一樣，在高中時對地理十分有興趣想了解地理資訊(GIS)相關資訊。<br>但google後得到的資訊實在頗少…應該說是可以學到空間資訊這個技術的大學不算太少，可是他們的科系名稱和教學重心都不大相同…</p>
 <span id="more"></span>
 <p>像是成大的測量及空間資訊學系、逢甲的土地管理學系、台大地理系的地理資訊組、政大地政系的土地測量與資訊組、北大不動產與城鄉管理學系…其實真的不算少。<br>至於上述舉例的五個系，到底該選擇何者就讀，或許你可以參考我的文章看看。</p>
 <hr>
@@ -317,8 +317,8 @@
 <h3 id="計算機程式設計"><a href="#計算機程式設計" class="headerlink" title="* 計算機程式設計"></a><font color=#FFA07A>* 計算機程式設計</font></h3><p>我非常喜歡的一堂課! 前幾堂課是補充計算機概論的基本知識還有一些html的語法，不過主要是教Python的語法，為了銜接之後要學習的地理資訊系統。每個學校的計算機程式設計教的程式語言可能會有不同，但我覺得都可以好好學習，個人認為這個科目挺重要的。乾鹿本身在修這堂課的同時，也有去外面參加Python讀書會，現在也是持續自學中，所以才架設這個部落格放學習筆記XD </p>
 <h3 id="民法概要"><a href="#民法概要" class="headerlink" title="* 民法概要"></a><font color=#FFA07A>* 民法概要</font></h3><p>通常民法、民法概要的老師，因為知道修這堂課的學生大多是非法律系專業學生，所以上課或考試都不會太難。乾鹿在上這堂課時，通常是上課認真聽講，在上課期間就想辦法聽懂，這樣回去不用花太多時間複習，只要在期中考前複習一次就差不多了。而且民法概要這堂課比想像中有趣，會發現原來我們的生活中，有許多行為與民法息息相關。</p>
 <h3 id="測量平差法"><a href="#測量平差法" class="headerlink" title="* 測量平差法"></a><font color=#FFA07A>* 測量平差法</font></h3><p>在外業觀測得到的觀測值一定存在誤差，需要進行調整，求得測量對象的最佳估計值的理論和方法，就是測量平差法。這堂課會用到一些微積分和統計學。在這堂課學到誤差傳播理論，會時常出現在課程裡。乾鹿在這堂課也是上課就專心聽講，把觀念聽懂。不過下課後的作業會需要花比較多時間練習，而且需要複習一下上課內容。</p>
-<h2 id="出路"><a href="#出路" class="headerlink" title="出路"></a><font color=#FFA07A>出路</font></h2><p>乾鹿目前也沒有真的搞清楚出路，上網查私部門職缺相較其他職業真的沒有那麼多。而且系上老師不知為何時常介紹我們考公務員這個選項(?)系上也會有人自嘲就讀公務員系(?)其實系上轉系或雙主修的人偏多，可能在台灣空間資訊目前的發展還不夠大吧…?<br>總之有聽過學長姊畢業後考公務員、或是就職於工程顧問公司和地理資訊公司等。</p>
-<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a><font color=#FFA07A>小結</font></h2><p>想特別提醒一點: 在國高中時對地理課有興趣，<strong>不一定</strong>代表喜歡或適合讀地理系或空間資訊相關科系喔!!!<br>選擇一個學校和科系，除了興趣和合適度之外，還有許多需要考量的像是住宿交通學校資源等，不過在討論下去就會與此次主題偏題了。<br>最後，空間資訊是個比較大的主題，它涵蓋地理資訊(GIS)</p>
+<h2 id="出路"><a href="#出路" class="headerlink" title="出路"></a><font color=#FFA07A>出路</font></h2><p>我目前也沒有真的搞清楚出路，上網查私部門職缺相較其他職業沒有那麼多。而且系上老師不知為何時常介紹我們考公務員這個選項(?)其實系上轉系或雙主修的人偏多，可能在台灣空間資訊目前的發展還不夠大吧…?<br>總之有聽過學長姊畢業後考公務員(測量製圖科)、或是就職於工程顧問公司和地理資訊公司等。</p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a><font color=#FFA07A>小結</font></h2><p>想特別提醒一點: 在國高中時對地理課有興趣，<strong>不一定</strong>代表喜歡或適合讀地理系或空間資訊相關科系喔!!!<br>選擇一個學校和科系，除了興趣和合適度之外，還有許多需要考量的像是住宿交通學校資源等，不過在討論下去就會與此次主題偏題了。</p>
 ]]></content>
       <categories>
         <category>閒聊</category>
@@ -359,59 +359,6 @@
       </categories>
       <tags>
         <tag>CS_everywhere</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>地理資訊科學之上課筆記1_GIS_Lecture_note</title>
-    <url>/Lecture-Note/20210930/631532625/</url>
-    <content><![CDATA[<p>這系列文章為上課筆記。<br>這一篇主要在介紹<font color=#C53761><strong>認識QGIS環境</strong></font>、<font color=#C53761><strong>加入(import)圖層</strong></font>、<font color=#C53761><strong>其餘筆記</strong></font></p>
-<span id="more"></span>
-<p><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11</strong></p>
-<hr>
-<h2 id="認識QGIS環境"><a href="#認識QGIS環境" class="headerlink" title="認識QGIS環境"></a><font color=#FFA07A>認識QGIS環境</font></h2><p>進入QGIS環境後，可以看到畫面主要分為三個視窗。<br>左測有上下兩個視窗，上面為Browser，下方為layer，右側為主畫面。<br><strong>Browser:</strong> 類似檔案總管。<br><strong>Layers:</strong> 圖層，方框中可勾選便可在右邊主視窗中顯示該圖層。<br><strong>上排工具列:</strong><br>放大鏡/縮小鏡: 除了可用點擊放大該區域外，也可以拉一塊想放大之區域。<br><strong>狀態列(視窗下方):</strong><br>從左到右依序為: Coordinate(座標)、Scale(比例尺)、Magnifier(放大縮小比例)、Rotation(旋轉角度)、Render、座標系統。</p>
-<h2 id="加入-import-圖層"><a href="#加入-import-圖層" class="headerlink" title="加入(import)圖層"></a><font color=#FFA07A>加入(import)圖層</font></h2><p>上課有介紹三種方式匯入圖層:<br>可以參考<a href="https://wenlab501.github.io/tutorial/qgis_tutor/basic_workflow/insert_layer/">此網站</a><br>QGIS 的加入圖層可以分成各種不同的資料來源，其中WMS/WMTS資料，老師介紹台灣兩個公開地圖資源:<br>介接國土測繪圖資服務雲WMTS: <a href="https://wmts.nlsc.gov.tw/97/wmts">https://wmts.nlsc.gov.tw/97/wmts</a><br>中央研究院 WMTS 服務網址: <a href="https://gis.sinica.edu.tw/tileserver/wmts">https://gis.sinica.edu.tw/tileserver/wmts</a><br>點選Browser視窗中之WMS/WMTS，按滑鼠右鍵選擇<strong>New Connection</strong>，並在出現的視窗中輸入名字和網址即可。</p>
-<h2 id="其餘筆記"><a href="#其餘筆記" class="headerlink" title="其餘筆記"></a><font color=#FFA07A>其餘筆記</font></h2><ul>
-<li>在layer中，滑鼠右鍵點擊圖層，有一排功能鍵可以選取，此堂課介紹其中兩個。</li>
-<li><strong>Properties:</strong> 可看此圖層基本資料或調整透明度等。</li>
-<li><strong>Open attribute table:</strong> 觀看此圖層之屬性資料。(向量式資料一定有屬性資料，網格式資料不一定)<br>在點開圖層之屬性資料後，可以點選欲顯示之資料(一列通常就是一筆資料)，上排工具列中有一個<strong>Zoom map to the selected rows</strong>，按下後圖層就會放大那筆資料所在區域且用特定顏色標示。</li>
-<li>feature: 圖徵</li>
-<li>點陣圖=網狀式資料</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Lecture_Note</category>
-      </categories>
-      <tags>
-        <tag>GIS</tag>
-        <tag>上課筆記</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>地理資訊科學之上課筆記2_GIS_Lecture_note2</title>
-    <url>/Lecture-Note/20210930/2781543851/</url>
-    <content><![CDATA[<p>這系列文章為上課筆記。<br>這一篇主要在介紹<font color=#C53761><strong>網格式資料 VS. 向量式資料</strong></font>、<font color=#C53761><strong>檔案格式</strong></font>、<font color=#C53761><strong>認識ArcGIS</strong></font>、<font color=#C53761><strong>今日實作:計算面積</strong></font></p>
-<span id="more"></span>
-<p><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8</strong></p>
-<hr>
-<h2 id="網格式資料-VS-向量式資料"><a href="#網格式資料-VS-向量式資料" class="headerlink" title="網格式資料 VS. 向量式資料"></a><font color=#FFA07A>網格式資料 VS. 向量式資料</font></h2><p>網格式資料在放大時有明顯的鋸齒狀。<br>向量式資料每次縮放後，都會重新描點畫線，因此展現出平滑的線條。<br>由於向量式資料只需要輸入轉折點的xy座標，而網格是每一格都需填入資料(且網隔越小精確度越高)，因此網格式的資料量會比向量式大。</p>
-<h2 id="檔案格式"><a href="#檔案格式" class="headerlink" title="檔案格式"></a><font color=#FFA07A>檔案格式</font></h2><p>屬性資料:dbf<br>空間資料:shp(shapefile一定是向量式資料)<br>空間索引、連結上述資料:shx<br>擁有不同解析度的圖層檔: ovr<br>紀錄座標:tfw<br>ArcGIS檔名:aprx<br>WGS是GPS預設檔案<br>JPG通常預設壓縮，因此會影響影像品質；而tif檔通常預設不壓縮檔案。</p>
-<h2 id="認識ArcGIS"><a href="#認識ArcGIS" class="headerlink" title="認識ArcGIS"></a><font color=#FFA07A>認識ArcGIS</font></h2><p>一進入ArcGIS，正中間的主視窗就已經呈現預設的兩個圖層了(World Topographic Map和World Hillshade)。<br>想增加新圖層，可以直接拖拉檔案到位在左側的窗格<strong>Content</strong>之<strong>Map</strong>下方。<br>跟QGIS一樣，點擊滑鼠右鍵，並按<strong>Properties</strong>，一樣可以看到此圖層之基本資料；若是按<strong>Attribute Table</strong>則是會出現屬性資料。</p>
-<h2 id="今日實作-計算面積"><a href="#今日實作-計算面積" class="headerlink" title="今日實作:計算面積"></a><font color=#FFA07A>今日實作:計算面積</font></h2><p>本次實作使用之圖層為WGS84之縣市界圖層。(可搭配隨堂練習裡的截圖，會更清楚易懂此次操作)<br>按滑鼠右鍵點擊<strong>Attribute Table</strong>後，主視窗下方會出現其屬性資料的窗格。<br>點擊此窗格左上角之<strong>Add</strong>。<strong>Field Name</strong>那一行打Area；<strong>Data Type</strong>選擇double。<br>完成後會發現屬性資料窗格已經有Area這一行，但資料卻都顯示為零，所以接著要計算面積。<br>滑鼠右鍵點擊Area，按<strong>Calculate Geometry</strong>後，會出現視窗，接著選擇欲計算的事物(此例為Area(geometry))、單位(Square Kilometers)、座標系統(TWD 1997 TM Taiwan)等。<br>按ok後，就會發現Area那一行現在有計算好的面積了。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a><font color=#FFA07A>其他</font></h2><ul>
-<li><p>image pyramid(可以搜尋圖片)<br>1:32<br>1:16<br>1:8<br>1:4<br>1:2</p>
-</li>
-<li><p>Geographic Coordinate System是球面的；Projected Coordinate System是平面的。</p>
-</li>
-<li><p>ArcGIS專案(Projects)皆儲存在C:\Users\Username\Documents\ArcGIS\Projects</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Lecture_Note</category>
-      </categories>
-      <tags>
-        <tag>GIS</tag>
-        <tag>上課筆記</tag>
       </tags>
   </entry>
   <entry>
@@ -528,5 +475,107 @@
 <li><a href="https://w3.iams.sinica.edu.tw/lab/wbtzeng/lifeinfo/html_use.htm">https://w3.iams.sinica.edu.tw/lab/wbtzeng/lifeinfo/html_use.htm</a></li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>健康精靈 - python讀書會期末專案</title>
+    <url>/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/</url>
+    <content><![CDATA[<p>這是我在2021上半年參與的讀書會，期末時準備的團體專案。<br>關於我參與的讀書會，ccClub，如果有興趣，請按<a href="https://www.ccclub.io/">連結</a>看更多資訊。<br>在這篇文章你可以看到: 期末時製作的<font color=#C53761><strong>健康管理Linebot&lt;健康精靈&gt;</strong></font>，幫助現代人在Line上面快速紀錄飲食和運動，並且提供健康上的建議。</p>
+<span id="more"></span>
+
+<h2 id="專案介紹"><a href="#專案介紹" class="headerlink" title="專案介紹"></a><font color=#FFA07A>專案介紹</font></h2><p>利用 Python 套件(Django、Pandas、Matplotlib)，在 Line 中建立飲食運動紀錄精靈，改善人對自我健康的意識，也善用聊天機器人的優勢，透過溫馨的言語及噓寒問暖讓人不是面對生澀冰冷的聊天室，每天能滿懷開心的心情將自己的飲食與運動紀錄交給健康精靈做處理，並從回饋圖表、每日紀錄中獲得生理上健康的改善。</p>
+<h2 id="專案流程圖"><a href="#專案流程圖" class="headerlink" title="專案流程圖"></a><font color=#FFA07A>專案流程圖</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/health_fairy_dfd.jpg" class="">
+<h2 id="資料庫ERD"><a href="#資料庫ERD" class="headerlink" title="資料庫ERD"></a><font color=#FFA07A>資料庫ERD</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/health_fairy_erd.jpg" class="">
+<h2 id="功能介紹"><a href="#功能介紹" class="headerlink" title="功能介紹"></a><font color=#FFA07A>功能介紹</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/health_fairy_start1.jpg" class="">
+<p><strong>加好友後第一次進入</strong>: 使用者需要”輸入個人資料” 系統會依序發送”您的身高(公尺)”、”您的體重”、”您的年齡”，待問題回答完後將資料儲存。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/health_fairy_func1.jpg" class="">
+<p><strong>儲存運動紀錄</strong>: 使用者點擊此功能後，機器人會發送”您今天運動了嗎？”，然後使用者再輸入今天運動的項目以及時間，機器人之後就會把使用者輸入的東西存到資料庫。<br><strong>儲存飲食紀錄</strong>: 使用者點擊此功能後，機器人會發送”您今天吃甚麼”，然後使用者再輸入今天吃的品項，機器人之後就會把使用者輸入的東西存到資料庫。<br><strong>BMI/BMR</strong>: 參考食藥署提供的算式子將數值代入後回傳BMI/BMR。<br><strong>圖表繪製</strong>: 每天攝取多少大卡數進行統整，繪製長條圖、表格說明每天大卡狀況。<br><strong>營養新聞報</strong>: 每日推播一個從健康 2.0 網站的熱門新聞，供使用者閱讀。<br><strong>健康精靈</strong>: 回傳當天消耗的大卡與增加的大卡數，並附上進食與運動紀錄數值統整。</p>
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a><font color=#FFA07A>DEMO</font></h2><div class="video-container"><iframe src="https://www.youtube.com/embed/d16AikNq9iY" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+<h2 id="未來修正"><a href="#未來修正" class="headerlink" title="未來修正"></a><font color=#FFA07A>未來修正</font></h2><ul>
+<li>回覆延遲，須再優化程式</li>
+<li>可參考的食品種類數較少，可能可以多爬蟲另一個網站</li>
+<li>將使用者輸入調整成更加人性化、不用制式格式</li>
+</ul>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a><font color=#FFA07A>心得</font></h2><p>由於那時剛接觸程式不久，這個團體專案對我而言挑戰很大，不過也更培養我自學的能力。<br>而且初學者的好處就是，只要前進一小步，都會覺得很振奮。<br>之後如果有時間，在來記錄建立linebot的方法。</p>
+]]></content>
+      <categories>
+        <category>Portfolio</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>作品集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>組合和觀察 Landsat8 的多波段影像</title>
+    <url>/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/</url>
+    <content><![CDATA[<p>這是我在地理資訊科學的其中一項作業，當時做完覺得很有趣，利用此機會紀錄一下。<br>在這篇文章裡，會看到組合 <font color=#C53761><strong>Landsat8 OLI/TIRS C2 L2</strong></font> 多波段影像並進行觀察。</p>
+<span id="more"></span>
+<h2 id="關於Landsat系列衛星"><a href="#關於Landsat系列衛星" class="headerlink" title="關於Landsat系列衛星"></a><font color=#FFA07A>關於Landsat系列衛星</font></h2><p>我覺得這位大大介紹的很詳細，有興趣可以點進去看看。<a href="https://www.796t.com/article.php?id=469750">Click me</a><br>更: 2022/2/10，Landsat9衛星影像開放下載了!</p>
+<h2 id="下載Landsat8衛星影像"><a href="#下載Landsat8衛星影像" class="headerlink" title="下載Landsat8衛星影像"></a><font color=#FFA07A>下載Landsat8衛星影像</font></h2><p>利用USGS EarthExplorer 下載台灣的 Landsat 8 衛星影像，選擇雲量較低的影像下載資料。</p>
+<ul>
+<li>須先申請 <a href="https://earthexplorer.usgs.gov/">USGS EarthExplorer</a> 帳號</li>
+<li>電腦上須安裝 JAVA VM</li>
+<li>須安裝 <a href="https://drive.google.com/file/d/1YxR8zgqk7w4jSjxwgroChZyUbU-t-6nB/view?usp=sharing">Bulk Download Application</a> 軟體才能下載資料</li>
+</ul>
+<p>關於如何下載，網路上有很多相關文章，這邊就不多贅述了。<br>由於這次作業是要看台灣的衛星影像，因此在 Search Criteria 那欄選擇 Path/Row，台灣為 117/43, 117/44, 118/43, 118/44。Data set選擇 Landsat 8 OLI/TIRS C2 L2，提供多光譜波段地表反射率和熱紅外波段地表溫度產品，即多光譜資料經過了大氣校正處理。我最終下載了2021年9月29日的北台灣衛星影像，雲量在15%以下。</p>
+<h2 id="組合多波段影像"><a href="#組合多波段影像" class="headerlink" title="組合多波段影像"></a><font color=#FFA07A>組合多波段影像</font></h2><p>擔心涉及版權，所以就不放操作畫面截圖，只用文字敘述。</p>
+<p>建立一個 ArcGIS Pro 專案(或是其他GIS軟體)，將 Band 1-7 的tif檔加入地圖中。<br>我在這次作業中選擇觀察新北市，因此利用 Clip Raster 工具擷取新北市的衛星影像。<br>將產生的7個波段(Band 1-7)的影像組合成為一個多波段的影像(使用 Composite Bands 工具，注意 Band 的順序)。<br>接下來將不同波段嘗試放入紅色R、綠色G、藍色B頻道中。</p>
+<h2 id="觀察影像"><a href="#觀察影像" class="headerlink" title="觀察影像"></a><font color=#FFA07A>觀察影像</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band432.jpg" class="">
+<p>Band 4, 3, 2 - Natural Color Image: 最接近真實顏色之波段影像。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band543.jpg" class="">
+<p>Band 5, 4, 3 - Traditional Color Infrared (CIR) Image: 植被會呈現紅色。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band764.jpg" class="">
+<p>Band 7, 6, 4 - False Color useful for visualizing urban environments: 利於查看都市、人造物位置。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band564.jpg" class="">
+<p>Band 5, 6, 4 - False Color good for picking out land from water: 陸地呈現橘色或綠色，冰會呈現亮紫色，水則是藍色。(個人覺得水在此張圖接近深藍色)</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band753.jpg" class="">
+<p>Band 7, 5, 3 - False color image with good atmospheric penetration: 與上張圖的band 5,6,4相近，不過陸地以更鮮艷的綠色表示。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band652.jpg" class="">
+<p>Band 6, 5, 2 - False color for agriculture: 用於辨識農作物，以鮮豔的綠色表示；非農作物的植物會以較暗的綠色呈現；非植被則以接近洋紅色表示(個人覺得非農作物在此張圖呈現灰色)。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band632.jpg" class="">
+<p>Band 6, 3, 2 - False color for distinguishing differences in bare earth: 以淺咖啡色用來表示沒有大片植被的地方。</p>
+<hr>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/band571.jpg" class="">
+<p>Band 5, 7, 1 - False color for vegetation and water: 植被呈現橘色，水則是藍色。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><font color=#FFA07A>References</font></h2><ul>
+<li><a href="https://www.796t.com/article.php?id=469750">https://www.796t.com/article.php?id=469750</a></li>
+<li><a href="https://www.l3harrisgeospatial.com/Learn/Blogs/Blog-Details/ArtMID/10198/ArticleID/15691/The-Many-Band-Combinations-of-Landsat-8">https://www.l3harrisgeospatial.com/Learn/Blogs/Blog-Details/ArtMID/10198/ArticleID/15691/The-Many-Band-Combinations-of-Landsat-8</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Portfolio</category>
+      </categories>
+      <tags>
+        <tag>GIS</tag>
+        <tag>作品集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用GIS產出的地圖們</title>
+    <url>/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/</url>
+    <content><![CDATA[<p>123</p>
+<span id="more"></span>
+<h2 id="關於Landsat系列衛星"><a href="#關於Landsat系列衛星" class="headerlink" title="關於Landsat系列衛星"></a><font color=#FFA07A>關於Landsat系列衛星</font></h2><div class="pdfobject-container" data-target="/pdf/面積統計表.pdf" data-height="500px"></div>
+
+]]></content>
+      <categories>
+        <category>Portfolio</category>
+      </categories>
+      <tags>
+        <tag>GIS</tag>
+        <tag>作品集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OOP_1</title>
+    <url>/uncategorized/20220407/3753320447/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

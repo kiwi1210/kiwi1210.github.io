@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/</loc>
+    
+    <lastmod>2022-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/</loc>
+    
+    <lastmod>2022-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/uncategorized/20220407/3753320447/</loc>
+    
+    <lastmod>2022-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/4089323357/</loc>
+    
+    <lastmod>2022-04-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/hexo/20210705/2185937872/</loc>
+    
+    <lastmod>2022-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/chat/20210709/1815532527/</loc>
+    
+    <lastmod>2022-04-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kiwi1210.github.io.com/google36a787fb1b8c2e0d.html</loc>
     
     <lastmod>2022-04-06</lastmod>
@@ -16,37 +58,9 @@
   </url>
   
   <url>
-    <loc>http://kiwi1210.github.io.com/Lecture-Note/20210930/631532625/</loc>
-    
-    <lastmod>2021-10-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kiwi1210.github.io.com/Lecture-Note/20210930/2781543851/</loc>
-    
-    <lastmod>2021-10-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kiwi1210.github.io.com/chat/20210709/1815532527/</loc>
-    
-    <lastmod>2021-07-24</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kiwi1210.github.io.com/CS-everywhere/20210724/975940166/</loc>
     
     <lastmod>2021-07-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kiwi1210.github.io.com/hexo/20210705/2185937872/</loc>
-    
-    <lastmod>2021-07-05</lastmod>
     
   </url>
   
@@ -67,7 +81,7 @@
 
   <url>
     <loc>http://kiwi1210.github.io.com/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,35 +89,42 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/hexo/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/GIS/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/%E6%B1%82%E5%AD%B8%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/CS-everywhere/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://kiwi1210.github.io.com/tags/%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <loc>http://kiwi1210.github.io.com/tags/python/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/tags/%E4%BD%9C%E5%93%81%E9%9B%86/</loc>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -112,28 +133,28 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/hexo/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/chat/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/CS-everywhere/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://kiwi1210.github.io.com/categories/Lecture-Note/</loc>
-    <lastmod>2022-04-06</lastmod>
+    <loc>http://kiwi1210.github.io.com/categories/%E4%BD%9C%E5%93%81%E9%9B%86/</loc>
+    <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
