@@ -20,19 +20,26 @@
     var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8">
+  <meta name="description" content="在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用GIS產出的地圖們">
 <meta property="og:url" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/index.html">
-<meta property="og:site_name" content="Advoholic">
-<meta property="og:description" content="第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8">
+<meta property="og:site_name" content="Avoholic">
+<meta property="og:description" content="在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_table.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_chart.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/slope.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis1.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis2.jpg">
 <meta property="article:published_time" content="2022-04-07T12:44:08.000Z">
-<meta property="article:modified_time" content="2022-04-09T08:45:23.169Z">
-<meta property="article:author" content="Advoholic 酪梨愛好者">
+<meta property="article:modified_time" content="2022-04-09T14:34:20.979Z">
+<meta property="article:author" content="Avoholic 酪梨愛好者">
 <meta property="article:tag" content="GIS">
 <meta property="article:tag" content="作品集">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg">
 
 <link rel="canonical" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/">
 
@@ -47,7 +54,7 @@
   };
 </script>
 
-  <title>利用GIS產出的地圖們 | Advoholic</title>
+  <title>利用GIS產出的地圖們 | Avoholic</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
     <script>
@@ -107,7 +114,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Advoholic</h1>
+      <h1 class="site-title">Avoholic</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">A Learning Note for Programming & Spatial Analysis</p>
@@ -176,12 +183,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Advoholic 酪梨愛好者">
-      <meta itemprop="description" content="Hi, I'm Advoholic, a rookie exploring the world of programming and spatial analysis!">
+      <meta itemprop="name" content="Avoholic 酪梨愛好者">
+      <meta itemprop="description" content="Hi, I'm Avoholic, a rookie exploring the world of programming and spatial analysis!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Advoholic">
+      <meta itemprop="name" content="Avoholic">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -202,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-04-09 16:45:23" itemprop="dateModified" datetime="2022-04-09T16:45:23+08:00">2022-04-09</time>
+                <time title="修改時間：2022-04-09 22:34:20" itemprop="dateModified" datetime="2022-04-09T22:34:20+08:00">2022-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +248,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
+              <span>2 分鐘</span>
             </span>
 
         </div>
@@ -253,13 +260,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。<br>在這篇文中，我想分享一些在課程中<font color=#C53761><strong>利用GIS分析後產出的地圖</strong></font>。<br><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8</strong></p>
+        <p>在這篇文中，我想分享一些在課程中<font color=#C53761><strong>利用GIS分析後產出的地圖</strong></font>。<br>第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。<br><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8</strong><br><strong>擔心涉及版權，因此不放上操作過程截圖</strong></p>
 <span id="more"></span>
-<h2 id="台北市土壤液化潛勢圖"><a href="#台北市土壤液化潛勢圖" class="headerlink" title="台北市土壤液化潛勢圖"></a><font color=#FFA07A>台北市土壤液化潛勢圖</font></h2><p>從台灣村里界圖中篩選出台北市里界圖，並將坐標系統轉換為TWD97。<br>在<a target="_blank" rel="noopener" href="https://soil.taipei/Taipei/Main/pages/index.html">台北市政府土壤液化潛勢查詢系統</a> 點選 <em>圖資下載</em> &gt; <em>液化潛勢區GeoJSON(TWD97)</em> 下載 TPLiquid_97.GeoJSON(臺北市土壤液化潛勢圖)。<br>開啟ArcGIS Pro(或是其他GIS軟體)，新增一個project專案，並將檔案匯入geodatabase中(使用 JSON to Features 工具)，並將檔案加入Map中，底圖採用國土測繪圖資雲之<em>台灣通用電子地圖</em>，然後設定土壤液化潛勢分級名稱。新增一個Layout以繪製地圖，將地圖輸出為PDF檔 TP_Liquid.pdf。</p>
+<h2 id="台北市土壤液化潛勢圖"><a href="#台北市土壤液化潛勢圖" class="headerlink" title="台北市土壤液化潛勢圖"></a><font color=#FFA07A>台北市土壤液化潛勢圖</font></h2><p>從台灣村里界圖中篩選出台北市里界圖，並將坐標系統轉換為TWD97。<br>在<a target="_blank" rel="noopener" href="https://soil.taipei/Taipei/Main/pages/index.html">台北市政府土壤液化潛勢查詢系統</a> 點選 <em>圖資下載</em> &gt; <em>液化潛勢區GeoJSON(TWD97)</em> 下載 TPLiquid_97.GeoJSON(臺北市土壤液化潛勢圖)。<br>開啟ArcGIS Pro(或是其他GIS軟體)，新增一個project專案，使用 <em>JSON to Features</em> 工具將檔案匯入geodatabase中，並將檔案加入Map中，底圖採用國土測繪圖資雲之<em>台灣通用電子地圖</em>，然後設定土壤液化潛勢分級名稱。新增一個Layout以繪製地圖。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg" class="">
 <div class="pdfobject-container" data-target="./pdf/TP_Liquid.pdf" data-height="500px"></div>
 
 
-<h2 id="台北市土壤液化潛勢圖-1"><a href="#台北市土壤液化潛勢圖-1" class="headerlink" title="台北市土壤液化潛勢圖"></a><font color=#FFA07A>台北市土壤液化潛勢圖</font></h2><p>新增一個Map，將底圖改為中央研究院WMTS服務之 [1930-日治時期地質圖]，加入 [TP_liquid]與 [Taipei_Admin_Sub]，設定 [TP_liquid] 圖層之透明度為50%，加上台北市次分區的名稱作為標籤(label)，篩選出 [萬華、大同、中正、大安、中山、松山、信義、南港] 等行政區的範圍並與[TP_liquid] 進行套疊分析(Overlay analysis)將交集運算的結果存為 [TP_liquid_AdminSub]，將其屬性資料表輸出為 [Taipei_Liquid_Admin_Sub.csv]，開啟 [TP_liquid_AdminSub] 之屬性表格，利用 Summary Table 統計各行政區中不同等級之土壤液化潛勢區之總面積。新增Layout，並繪製(1)面積統計圖與(2)面積統計表呈現在地圖中(地圖中應標示適當的文字)，將地圖輸出為PDF檔。</p>
+<h2 id="台北市8行政區土壤液化面積統計圖表"><a href="#台北市8行政區土壤液化面積統計圖表" class="headerlink" title="台北市8行政區土壤液化面積統計圖表"></a><font color=#FFA07A>台北市8行政區土壤液化面積統計圖表</font></h2><p>延續上個專案，在同一個專案中新增一個Map，將底圖改為<a target="_blank" rel="noopener" href="https://gis.sinica.edu.tw/tileserver/">中央研究院WMTS服務</a>之<em>1930-日治時期地質圖</em>，加入在上一個地圖加入的feature - TPLiquid與 Taipei_Admin_Sub (這是老師另外整理出的csv檔)。</p>
+<blockquote>
+<p>個人習慣: 加入資料前，都會先檢視資料內容和格式。</p>
+</blockquote>
+<p>設定 TP_liquid 圖層之透明度為50%，加上台北市次分區(sec_name)的名稱作為標籤(label)，篩選出   <em>萬華、大同、中正、大安、中山、松山、信義、南港</em> 共8個行政區的範圍並與 TP_liquid 進行 <strong>套疊分析(Overlay analysis)</strong> 將交集運算的結果存為 TP_liquid_AdminSub，將其屬性資料表(Attribute Table)輸出為 csv檔。<br>開啟 TP_liquid_AdminSub 之屬性表格，利用 <em>Summary Table</em> 統計各行政區中不同等級之土壤液化潛勢區之總面積。新增Layout，並繪製面積統計圖與面積統計表呈現在地圖中。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_table.jpg" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_chart.jpg" class="">
+
+<h2 id="台北市文山區坡度圖"><a href="#台北市文山區坡度圖" class="headerlink" title="台北市文山區坡度圖"></a><font color=#FFA07A>台北市文山區坡度圖</font></h2><p>新增一個Map，將 台北市行政區 加入Map中，利用 <em>ASCII 3D to Feature Class</em> 工具將 Taipei20MDEM(老師給的資料) 目錄中的原始XYZ點坐標資料轉換為3D的點圖徵集(3D Point Feature Class)，然後利用 <em>Feature to Raster</em> 工具將點圖徵集轉換成 Raster 資料。可修改調色盤和顏色分級方式。<br>利用 <em>Contour</em> 工具產生10m間距等高線圖，<em>Slope</em> 工具產生坡度圖(採用百分比Percentile)， 並依據「山坡地土地可利用限度分類標準」，使用 <em>Reclassify</em> 工具，將坡度圖分類為6。<br>利用 台北市行政區 ，使用 <em>Clip Raster</em> ，將坡度圖切取出文山區的範圍，然後統計各坡度級的面積。由於無法使用calculate geometry，所以先使用 <em>Raster to Polygon</em> 轉成vector。接著在對gridcode這個屬性點擊滑鼠右鍵，選summerize。<br>利用 <em>Raster Calculator</em> 工具，將百分比轉換為用角度表示坡度。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/slope.jpg" class="">
+<ul>
+<li>一級坡(淺藍)：坡度百分之五以下。</li>
+<li>二級坡(洋紅)：坡度超過百分之五至百分之十五以下。</li>
+<li>三級坡(南瓜黃)：坡度超過百分之十五至百分之三十以下。</li>
+<li>四級坡(深藍)：坡度超過百分之三十至百分之四十以下。</li>
+<li>五級坡(綠)：坡度超過百分之四十至百分之五十五以下。</li>
+<li>六級坡(咖啡)：坡度超過百分之五十五。</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a><font color=#FFA07A>分析</font></h2><p>新增一個Map，將台北市行政區、大台北捷運路線、大台北捷運站、大臺北地區消防栓清冊、便利商店資料加入Map中，並將底圖設定為<a target="_blank" rel="noopener" href="https://maps.taipei/wmts/">台北市圖磚服務</a>。<br>便利超商的圖層屬性表沒有行政區的名稱，可以利用 <em>Identity (Analysis)</em> 與 台北市行政區 套疊加上行政區名稱，並從其中篩選出大安與信義行政區中的四大超商(7-11、全家、萊爾富、OK超商)。</p>
+<h3 id="1-距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些"><a href="#1-距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些" class="headerlink" title="(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些"></a><font color=#FFA07A>(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些</font></h3><p>利用大台北捷運站去做 <em>Buffer</em> 畫出捷運站50公尺範圍，再利用剛剛buffer得到的資料與大臺北地區消防栓清冊去做 <em>Spatial Join</em> ，發現共有六個捷運站符合。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis1.jpg" class="">
+<h3 id="2-以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線"><a href="#2-以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線" class="headerlink" title="(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線"></a><font color=#FFA07A>(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線</font></h3><p>利用大台北捷運路線去做 <em>Buffer</em> 畫出捷運站100公尺範圍，再利用剛剛buffer得到的資料與便利商店資料去做 <em>Spatial Join</em> ，可以得到結果。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis2.jpg" class="">
+
+
 
     </div>
 
@@ -283,8 +315,8 @@
       <i class="fa fa-chevron-left"></i> 組合和觀察 Landsat8 的多波段影像
     </a></div>
       <div class="post-nav-item">
-    <a href="/uncategorized/20220407/3753320447/" rel="next" title="OOP_1">
-      OOP_1 <i class="fa fa-chevron-right"></i>
+    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/" rel="next" title="點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml)">
+      點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -351,21 +383,21 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E6%BD%9B%E5%8B%A2%E5%9C%96"><span class="nav-number">1.</span> <span class="nav-text">台北市土壤液化潛勢圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E6%BD%9B%E5%8B%A2%E5%9C%96-1"><span class="nav-number">2.</span> <span class="nav-text">台北市土壤液化潛勢圖</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E6%BD%9B%E5%8B%A2%E5%9C%96"><span class="nav-number">1.</span> <span class="nav-text">台北市土壤液化潛勢圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%828%E8%A1%8C%E6%94%BF%E5%8D%80%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E9%9D%A2%E7%A9%8D%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">台北市8行政區土壤液化面積統計圖表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E5%9D%A1%E5%BA%A6%E5%9C%96"><span class="nav-number">3.</span> <span class="nav-text">台北市文山區坡度圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B7%9D%E9%9B%A2%E6%8D%B7%E9%81%8B%E7%AB%9950%E5%85%AC%E5%B0%BA%E7%9A%84%E7%AF%84%E5%9C%8D%E5%85%A7%E6%B6%88%E9%98%B2%E6%A0%93%E6%95%B8%E9%87%8F%E5%A4%A7%E6%96%BC4%E7%9A%84%E6%8D%B7%E9%81%8B%E7%AB%99%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">4.1.</span> <span class="nav-text">(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BB%A5%E6%B2%BF%E8%91%97%E6%8D%B7%E9%81%8B%E8%B7%AF%E7%B7%9A100%E5%85%AC%E5%B0%BA%E7%9A%84%E7%AF%84%E5%9C%8D%E5%85%A7%E4%BE%BF%E5%88%A9%E5%95%86%E5%BA%97%E6%95%B8%E9%87%8F%E9%80%B2%E8%A1%8C%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%89%8D10%E5%90%8D%E7%9A%84%E6%8D%B7%E9%81%8B%E8%B7%AF%E7%B7%9A"><span class="nav-number">4.2.</span> <span class="nav-text">(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Advoholic 酪梨愛好者</p>
-  <div class="site-description" itemprop="description">Hi, I'm Advoholic, a rookie exploring the world of programming and spatial analysis!</div>
+  <p class="site-author-name" itemprop="name">Avoholic 酪梨愛好者</p>
+  <div class="site-description" itemprop="description">Hi, I'm Avoholic, a rookie exploring the world of programming and spatial analysis!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -378,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -410,17 +442,17 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Advoholic 酪梨愛好者</span>
+  <span class="author" itemprop="copyrightHolder">Avoholic 酪梨愛好者</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">13k</span>
+    <span title="總字數">26k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">16 分鐘</span>
+    <span title="所需總閱讀時間">32 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>

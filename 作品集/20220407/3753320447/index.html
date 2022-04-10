@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在這篇文中，記錄自己在2021年末時的其中一項作業，撰寫圖形使用介面(Graphical User Interface，GUI)，將航攝紀錄的點位坐標資料轉換成 Shapefile 和 KML 圖檔。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml)">
+<meta property="og:url" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/index.html">
+<meta property="og:site_name" content="Avoholic">
+<meta property="og:description" content="在這篇文中，記錄自己在2021年末時的其中一項作業，撰寫圖形使用介面(Graphical User Interface，GUI)，將航攝紀錄的點位坐標資料轉換成 Shapefile 和 KML 圖檔。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022kml.jpg">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022shp.jpg">
+<meta property="article:published_time" content="2022-04-07T12:49:41.000Z">
+<meta property="article:modified_time" content="2022-04-10T13:40:38.966Z">
+<meta property="article:author" content="Avoholic 酪梨愛好者">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="作品集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022.jpg">
+
+<link rel="canonical" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml) | Avoholic</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-201219835-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Avoholic</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">A Learning Note for Programming & Spatial Analysis</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Avoholic 酪梨愛好者">
+      <meta itemprop="description" content="Hi, I'm Avoholic, a rookie exploring the world of programming and spatial analysis!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Avoholic">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-04-07 20:49:41" itemprop="dateCreated datePublished" datetime="2022-04-07T20:49:41+08:00">2022-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-04-10 21:40:38" itemprop="dateModified" datetime="2022-04-10T21:40:38+08:00">2022-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">Portfolio</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="作品集/20220407/3753320447/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>11 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在這篇文中，記錄自己在2021年末時的其中一項作業，撰寫<font color=#C53761><strong>圖形使用介面(Graphical User Interface，GUI)，將航攝紀錄的點位坐標資料轉換成 Shapefile 和 KML 圖檔</strong></font>。</p>
+<span id="more"></span>
+<h2 id="資料介紹"><a href="#資料介紹" class="headerlink" title="資料介紹"></a><font color=#FFA07A>資料介紹</font></h2><p>林務局農林航空測量所 (農航所) 使用高解像力數位相機 DMC (Digital Mapping Camera) 拍攝航空照片，並紀錄每張航空照片之相關資料，包括：任務編號、照片號碼、品質、投影中心座標、拍照時間、對應基本圖圖號、相機代號等，航空攝影紀錄資料可從<a target="_blank" rel="noopener" href="https://www.afasi.gov.tw/aerial-pic">農航所網站</a>下載。<br>下載一個記錄檔，裡面包含*.dbf, *.sel, *.shp, *.shx。<br>這次下載主要是為了sel檔，檔案裡的資料內容可參考<a target="_blank" rel="noopener" href="https://www.afasi.gov.tw/0000043">DMC 航空攝影紀錄檔格式說明</a></p>
+<p>另外，這次的程式碼也import latlon2twd.py和twd2latlon.py這兩支程式碼，參考<a target="_blank" rel="noopener" href="https://blog.ez2learn.com/2009/08/15/lat-lon-to-twd97/">此網站</a>，因為不是我寫的，所以就不放上來了。</p>
+<h2 id="準備工作"><a href="#準備工作" class="headerlink" title="準備工作"></a><font color=#FFA07A>準備工作</font></h2><p>下載wxPython。根據維基百科，wxPython是Python語言的GUI工具包，作為Python的擴充模組實現，包裝了wxWidgets。wxPython是跨平台的，開源的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install wxpython</span><br></pre></td></tr></table></figure>
+<p>也可以利用Qt Designer的視覺化操作來設計介面。<br>相關教學: <a target="_blank" rel="noopener" href="https://zhung.com.tw/article/%E7%94%A8qt-designer%E4%BE%86%E8%A8%AD%E8%A8%88pyqt-gui%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F%E7%95%8C%E9%9D%A2/">Click me</a></p>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a><font color=#FFA07A>程式碼</font></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: big5</span></span><br><span class="line"><span class="comment"># 若程式中有使用中文，必須指明使用BIG5碼，前述的字碼定義必須在程式的第一或第二行</span></span><br><span class="line"><span class="comment"># 字碼定義的方式可參考：http://www.python.org/dev/peps/pep-0263/</span></span><br><span class="line"><span class="comment"># Python支援的字碼： http://www.python.org/doc/2.4/lib/standard-encodings.html</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot; 此程式示作為檢查航照影像是否涵蓋機敏區的程式之GUI介面 &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, sys</span><br><span class="line"><span class="keyword">import</span> wx</span><br><span class="line"><span class="comment"># import exifread</span></span><br><span class="line"><span class="keyword">import</span> shapefile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="comment">#import datetime</span></span><br><span class="line"><span class="comment">#import numpy as np</span></span><br><span class="line"><span class="comment">#from skimage import io</span></span><br><span class="line"><span class="comment">#from skimage.transform import resize</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># some global variables</span></span><br><span class="line">inDir = <span class="string">&quot;&quot;</span></span><br><span class="line">currDir = os.getcwd()</span><br><span class="line">selFile = <span class="string">&quot;&quot;</span></span><br><span class="line">shpFile = <span class="string">&quot;&quot;</span></span><br><span class="line">kmlFile = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sin, cos, tan, radians</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> latlon2twd <span class="keyword">import</span> LatLonToTWD97</span><br><span class="line"><span class="keyword">from</span> twd2latlon <span class="keyword">import</span> TMToLatLon</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> degrees,radians</span><br><span class="line"></span><br><span class="line"><span class="comment"># KML header, trailer, and template for placemark</span></span><br><span class="line">kml_header = <span class="string">&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;kml xmlns=&quot;http://www.opengis.net/kml/2.2&quot;  xmlns:gx=&quot;http://www.google.com/kml/ext/2.2&quot; xmlns:kml=&quot;http://www.opengis.net/kml/2.2&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom &quot;&gt;</span></span><br><span class="line"><span class="string">&lt;Folder&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">place_mark = <span class="string">&#x27;&#x27;&#x27;&lt;Placemark&gt;  </span></span><br><span class="line"><span class="string">  &lt;name&gt;&#123;&#125;&lt;/name&gt;  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &lt;Point&gt;  </span></span><br><span class="line"><span class="string">    &lt;coordinates&gt;&#123;&#125;,&#123;&#125;,&#123;&#125;&lt;/coordinates&gt;  </span></span><br><span class="line"><span class="string">  &lt;/Point&gt;  </span></span><br><span class="line"><span class="string">&lt;/Placemark&gt;  </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">kml_trailer = <span class="string">&#x27;&#x27;&#x27;&lt;/Folder&gt;</span></span><br><span class="line"><span class="string">&lt;/kml&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFrame</span>(<span class="params">wx.Frame</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, parent, <span class="built_in">id</span>, title</span>):</span></span><br><span class="line">        <span class="comment">#建造一個新的 Frame</span></span><br><span class="line">        wx.Frame.__init__(self, parent=<span class="literal">None</span>, <span class="built_in">id</span>=wx.ID_ANY, title=<span class="string">&quot;EXIF Reader&quot;</span>, size=(<span class="number">540</span>,<span class="number">550</span>),</span><br><span class="line">                style = wx.DEFAULT_FRAME_STYLE &amp; ~wx.MAXIMIZE_BOX ^ wx.RESIZE_BORDER)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#logo_path = resource_path(&quot;nccu_logo.bmp&quot;)</span></span><br><span class="line">        <span class="comment">#self.window.iconbitmap(image_path)</span></span><br><span class="line">        ico = wx.Icon(<span class="string">&quot;nccu_logo.bmp&quot;</span>, wx.BITMAP_TYPE_ICO)</span><br><span class="line">        self.SetIcon(ico)</span><br><span class="line">                </span><br><span class="line">        <span class="comment"># 加入一個 Panel</span></span><br><span class="line">        panel = wx.Panel(self, wx.ID_ANY)</span><br><span class="line">        </span><br><span class="line">        wx.StaticText(parent=panel, label=<span class="string">&quot;輸入檔案:&quot;</span>, pos=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line">        self.a = wx.TextCtrl(parent=panel,pos=(<span class="number">140</span>,<span class="number">10</span>),size=(<span class="number">325</span>,<span class="number">20</span>))</span><br><span class="line">        self.btn1 = wx.Button(parent=panel,label=<span class="string">&quot;...&quot;</span>,pos=(<span class="number">480</span>,<span class="number">10</span>),size=(<span class="number">40</span>,<span class="number">20</span>))</span><br><span class="line">        self.Bind(wx.EVT_BUTTON, self.OnBtn1, self.btn1)</span><br><span class="line"></span><br><span class="line">        wx.StaticText(parent=panel, label=<span class="string">&quot;輸出檔案:&quot;</span>, pos=(<span class="number">15</span>,<span class="number">40</span>))</span><br><span class="line">        self.b = wx.TextCtrl(parent=panel,pos=(<span class="number">140</span>,<span class="number">40</span>),size=(<span class="number">325</span>,<span class="number">20</span>))</span><br><span class="line">        self.btn2 = wx.Button(parent=panel,label=<span class="string">&quot;...&quot;</span>,pos=(<span class="number">480</span>,<span class="number">40</span>),size=(<span class="number">40</span>,<span class="number">20</span>))</span><br><span class="line">        self.Bind(wx.EVT_BUTTON, self.OnBtn2, self.btn2)</span><br><span class="line"></span><br><span class="line">        self.btn3 = wx.Button(parent=panel,label=<span class="string">&quot; 清除訊息 &quot;</span>,pos=(<span class="number">15</span>,<span class="number">70</span>),size=(<span class="number">100</span>,<span class="number">20</span>))</span><br><span class="line">        self.Bind(wx.EVT_BUTTON, self.OnBtn3, self.btn3)</span><br><span class="line"></span><br><span class="line">        self.btn4 = wx.Button(parent=panel,label=<span class="string">&quot; 確定 &quot;</span>,pos=(<span class="number">460</span>,<span class="number">70</span>),size=(<span class="number">60</span>,<span class="number">20</span>))</span><br><span class="line">        self.Bind(wx.EVT_BUTTON, self.OnBtn4, self.btn4)</span><br><span class="line"></span><br><span class="line">        self.txtCtrl = wx.TextCtrl(panel, <span class="built_in">id</span>=wx.ID_ANY, style=wx.TE_MULTILINE, pos=(<span class="number">10</span>,<span class="number">110</span>), size=(<span class="number">510</span>,<span class="number">390</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment">#self.readConfigFile()</span></span><br><span class="line"><span class="comment">#            self.writeConfigFile()</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">OnBtn1</span>(<span class="params">self, evt</span>):</span></span><br><span class="line">        <span class="keyword">global</span> selFile</span><br><span class="line">        <span class="comment"># In this case we include a &quot;New directory&quot; button. DIR打開資料夾室窗。</span></span><br><span class="line">        <span class="comment">#dlg = wx.DirDialog(</span></span><br><span class="line">        <span class="comment">#    self, message=&quot;選擇輸入資料夾:&quot;,</span></span><br><span class="line">        <span class="comment">#    style=wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST</span></span><br><span class="line">        <span class="comment">#    )</span></span><br><span class="line">                     </span><br><span class="line"><span class="comment"># Choose the output file. </span></span><br><span class="line">        dlg = wx.FileDialog(</span><br><span class="line">            self, message=<span class="string">&quot;選擇SEL資料檔:&quot;</span>,</span><br><span class="line">            defaultDir=currDir, </span><br><span class="line">            defaultFile=<span class="string">&quot;&quot;</span>,</span><br><span class="line">            wildcard=<span class="string">&quot;*.sel&quot;</span>,    <span class="comment">#欲設附檔名為csv檔</span></span><br><span class="line">            style= wx.FD_FILE_MUST_EXIST | wx.FD_OPEN <span class="comment">#開啟檔案</span></span><br><span class="line">            )</span><br><span class="line">                    <span class="comment"># If the user selects OK, then we process the dialog&#x27;s data.</span></span><br><span class="line">        <span class="comment"># This is done by getting the path data from the dialog - BEFORE</span></span><br><span class="line">        <span class="comment"># we destroy it. </span></span><br><span class="line">        <span class="keyword">if</span> dlg.ShowModal() == wx.ID_OK:</span><br><span class="line">            <span class="comment"># This returns a Python list of files that were selected.</span></span><br><span class="line">            path = dlg.GetPath()</span><br><span class="line">            self.a.SetValue(path)</span><br><span class="line">            selFile = self.a.GetValue()</span><br><span class="line">            selFile = selFile.replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Only destroy a dialog after you&#x27;re done with it.</span></span><br><span class="line">        dlg.Destroy()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">OnBtn2</span>(<span class="params">self, evt</span>):</span></span><br><span class="line">        <span class="keyword">global</span> shpFile</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Choose the output file. </span></span><br><span class="line">        dlg = wx.FileDialog(</span><br><span class="line">            self, message=<span class="string">&quot;選擇輸出檔案:&quot;</span>,</span><br><span class="line">            defaultDir=currDir, </span><br><span class="line">            defaultFile=<span class="string">&quot;&quot;</span>,</span><br><span class="line">            wildcard=<span class="string">&quot;*.shp&quot;</span>,    <span class="comment">#欲設附檔名為csv檔</span></span><br><span class="line">            style= wx.FD_OVERWRITE_PROMPT | wx.FD_SAVE <span class="comment">#存檔</span></span><br><span class="line">            )</span><br><span class="line">                     </span><br><span class="line">        <span class="comment"># If the user selects OK, then we process the dialog&#x27;s data.</span></span><br><span class="line">        <span class="comment"># This is done by getting the path data from the dialog - BEFORE</span></span><br><span class="line">        <span class="comment"># we destroy it. </span></span><br><span class="line">        <span class="keyword">if</span> dlg.ShowModal() == wx.ID_OK:</span><br><span class="line">            <span class="comment"># This returns a Python list of files that were selected.</span></span><br><span class="line">            path = dlg.GetPath()</span><br><span class="line">            self.b.SetValue(path)</span><br><span class="line">            shpFile = self.b.GetValue()</span><br><span class="line">            shpFile = shpFile.replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Only destroy a dialog after you&#x27;re done with it.</span></span><br><span class="line">        dlg.Destroy()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">OnBtn3</span>(<span class="params">self, evt</span>):</span></span><br><span class="line">        </span><br><span class="line">        self.txtCtrl.Clear()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">OnBtn4</span>(<span class="params">self, evt</span>):</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.txtCtrl.WriteText(<span class="string">&#x27;輸入檔案： %s\n&#x27;</span> % selFile)</span><br><span class="line">            self.shp_generate()</span><br><span class="line">            </span><br><span class="line">            self.txtCtrl.WriteText(<span class="string">&#x27;輸出檔案： %s %s\n&#x27;</span> % (shpFile, kmlFile))</span><br><span class="line">            self.txtCtrl.WriteText(<span class="string">&#x27;成功!\n&#x27;</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># def shp_generate(fileIn, fileOut):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shp_generate</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">global</span> selFile, shpFile, kmlFile</span><br><span class="line">        kmlFile = shpFile[:-<span class="number">3</span>] + <span class="string">&#x27;kml&#x27;</span></span><br><span class="line">        fout = <span class="built_in">open</span>(kmlFile, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        fout.write(kml_header)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment">#開啟資料檔案，設定文字編碼為 Big5</span></span><br><span class="line">            fin=<span class="built_in">open</span>(selFile, encoding=<span class="string">&#x27;big5&#x27;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;資料檔讀取成功，資料轉換中......&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;輸入資料檔名錯誤!&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#產生一個Point的Shapefile檔，檔名為使用者所提供</span></span><br><span class="line">        shp = shapefile.Writer(shpFile, shapeType = shapefile.POINT)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#新增屬性欄位(點號,橫坐標(X),縱座標(Y),正高(Z),控制點種類,測量方法,使用儀器,</span></span><br><span class="line">        <span class="comment">#測定日期(yyyymmdd),測量員,記錄者,點之記網頁,備註)</span></span><br><span class="line">        <span class="comment">#欄位格式定義請參考：https://pypi.org/project/pyshp/</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        shp.field(<span class="string">&#x27;NAME&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="number">20</span>) </span><br><span class="line">        shp.field(<span class="string">&#x27;X_TWD97&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">15</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;Y_TWD97&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">15</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;H_TWD97&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">10</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;X_TWD67&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">15</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;Y_TWD67&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">15</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;H_TWD67&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">10</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;AIRLINE&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">5</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;DATE&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">8</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;TIME&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">4</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;SECOND&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;MAPID&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="number">8</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;CameraID&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">1</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;AIM&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">1</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;Available&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="number">1</span>)</span><br><span class="line">        shp.field(<span class="string">&#x27;heading&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#列出欄位的定義，以供檢查新增的欄位是否正確</span></span><br><span class="line">        <span class="built_in">print</span>(shp.fields)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#讀取第一列的檔頭，此為欄位說明，不屬於資料的一部分</span></span><br><span class="line">        first_line = fin.readline()</span><br><span class="line">        second_line = fin.readline()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fin:</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#line.strip() 首先去掉每一列輸入資料的結尾跳行符號</span></span><br><span class="line">            <span class="comment">#如果 len(s) == 0，表示此列為空白，可忽略之</span></span><br><span class="line">            s = line.strip()</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">        </span><br><span class="line">            <span class="comment">#s.split(&#x27;,&#x27;) 以逗號 (,) 分隔資料</span></span><br><span class="line">            <span class="comment">#每一列輸入的資料分隔後各別指派給等號左邊的變數</span></span><br><span class="line">            name1,name2,x_97,y_97,h_97,x_67,y_67,h_67,airline,date,time,sec,Map,camera,aim,available,heading,a,b,c,d,e,f,g,h,i,j,k,l = s.split( )</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">#從檔案讀進來的資料為文字格式 (string)，必須轉換為浮點數 (floating point) 才能進行運算</span></span><br><span class="line">            NAME = name1+<span class="string">&quot; &quot;</span>+name2</span><br><span class="line">            X_97=<span class="built_in">float</span>(x_97)</span><br><span class="line">            Y_97=<span class="built_in">float</span>(y_97)</span><br><span class="line">            H_97=<span class="built_in">float</span>(h_97)</span><br><span class="line">            X_67=<span class="built_in">float</span>(x_67)</span><br><span class="line">            Y_67=<span class="built_in">float</span>(y_67)</span><br><span class="line">            H_67=<span class="built_in">float</span>(h_67)</span><br><span class="line">            AIRLINE = <span class="built_in">float</span>(airline)</span><br><span class="line">            DATE=<span class="built_in">float</span>(date)</span><br><span class="line">            TIME=<span class="built_in">float</span>(time)</span><br><span class="line">            SEC=<span class="built_in">float</span>(sec)</span><br><span class="line">            CAMERA=<span class="built_in">float</span>(camera)</span><br><span class="line">            AIM=<span class="built_in">float</span>(aim)</span><br><span class="line">            HEADING=<span class="built_in">float</span>(heading)</span><br><span class="line"></span><br><span class="line">            c = TMToLatLon()</span><br><span class="line">            lat, lon = c.convert(X_97, Y_97)</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">            <span class="comment">#加入點位空間資料(坐標)以及屬性資料</span></span><br><span class="line">            shp.point(lat,lon)      <span class="comment">#空間資料</span></span><br><span class="line">            shp.record(NAME,lat,lon,H_97,X_67,Y_67,H_67,AIRLINE,DATE,TIME,SEC,Map,CAMERA,AIM,available,HEADING)    <span class="comment">#屬性資料</span></span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">            fout.write(place_mark.<span class="built_in">format</span>(NAME,<span class="built_in">float</span>(lon),<span class="built_in">float</span>(lat),H_97))</span><br><span class="line">            <span class="comment"># fout.write(place_mark.format(NAME,Y_97,X_97,H_97))</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#存成檔名為fileOut的shapefile檔</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment">#關閉輸出的 shapefile 檔案才能確保資料寫入磁碟中</span></span><br><span class="line">            shp.close()</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Shapefile圖檔 %s 產製成功!&quot;</span> % shpFile)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Shapefile圖檔 %s 產製失敗!&quot;</span> % shpFile)</span><br><span class="line">        </span><br><span class="line">        fout.write(kml_trailer)</span><br><span class="line">        fout.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">#關閉輸入資料檔案    </span></span><br><span class="line">        fin.close()</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span>(<span class="params">wx.App</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># wxWindows calls this method to initialize the application</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">OnInit</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Create an instance of our customized Frame class</span></span><br><span class="line">        frame = MyFrame(<span class="literal">None</span>, -<span class="number">1</span>, <span class="string">&quot;Create Worldfile&quot;</span>)</span><br><span class="line">        frame.Show(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Tell wxWindows that this is our main window</span></span><br><span class="line">        self.SetTopWindow(frame)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Return a success flag</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">#---------------------------------------------------------------------------</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = MyApp(<span class="number">0</span>)</span><br><span class="line">    app.MainLoop()</span><br></pre></td></tr></table></figure>
+<h3 id="打包成exe檔"><a href="#打包成exe檔" class="headerlink" title="打包成exe檔"></a><font color=#FFA07A>打包成exe檔</font></h3><p>打開Anaconda Prompt，切換路徑到上面程式檔案所在位置。<br>接著輸入以下程式碼。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pyinstaller</span><br></pre></td></tr></table></figure>
+<p>跑到一半會出現 Proceed([y]&#x2F;n)?<br>輸入 “y” 即可。<br>看到”done”即成功。<br>接著輸入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --onefile fileName</span><br></pre></td></tr></table></figure>
+<p>fileName填入欲打包成exe檔之程式檔案名稱。</p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a><font color=#FFA07A>測試</font></h2><p>由於我只是要檢測這支程式碼是否有成功執行，為加快速度我只取了sel檔中前100筆資料下去測試。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022.jpg" class="">
+<p>先來檢視產生出的kml檔，利用google earth測試。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022kml.jpg" class="">
+<p>再來檢視產生出shp檔，利用ArcGIS Pro測試。<br>由於沒有定義座標系統，使用 <em>define projection</em> 定義座標系統。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/test2022shp.jpg" class="">
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a><font color=#FFA07A>心得</font></h2><p>一開始以為這項作業難度不高，沒想到實際去寫的時候困難重重，如果沒有詹老師和同學的幫忙，絕對沒有辦法準時完成作業。也再度認知到自己的程式功力還是遠遠不足，尤其是debug…</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" rel="tag"># 作品集</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/" rel="prev" title="利用GIS產出的地圖們">
+      <i class="fa fa-chevron-left"></i> 利用GIS產出的地圖們
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/" rel="next" title="2D Drawing in AutoCAD (Progressing)">
+      2D Drawing in AutoCAD (Progressing) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">資料介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%96%E5%82%99%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">準備工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">3.</span> <span class="nav-text">程式碼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E6%88%90exe%E6%AA%94"><span class="nav-number">3.1.</span> <span class="nav-text">打包成exe檔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6"><span class="nav-number">4.</span> <span class="nav-text">測試</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-number">5.</span> <span class="nav-text">心得</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Avoholic 酪梨愛好者</p>
+  <div class="site-description" itemprop="description">Hi, I'm Avoholic, a rookie exploring the world of programming and spatial analysis!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Avoholic 酪梨愛好者</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">26k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">32 分鐘</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=60e205bc9bcbc8c7" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://RunnyDeer.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/";
+    this.page.identifier = "作品集/20220407/3753320447/";
+    this.page.title = "點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://RunnyDeer.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
