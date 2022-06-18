@@ -639,9 +639,12 @@
     <content><![CDATA[<p>The following are practices from the course I am studying now, Computer Aided Drawing.<br>Drawing on AutoCAD is always fun and challenging though my eyes easily get tired. Hope my passion on CAD can last till the end of the semester XD</p>
 <p><strong>AutoCAD version: AutoCAD 2022</strong><br><strong>The practices below are arranged from new to old</strong></p>
 <span id="more"></span>
+<h2 id="3D-Model-Exercise-Metal-Component"><a href="#3D-Model-Exercise-Metal-Component" class="headerlink" title="3D Model Exercise: Metal Component"></a><font color=#FFA07A>3D Model Exercise: Metal Component</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/3D.png" class="">
+<h2 id="Isometric-Exercise-Metal-Component"><a href="#Isometric-Exercise-Metal-Component" class="headerlink" title="Isometric Exercise: Metal Component"></a><font color=#FFA07A>Isometric Exercise: Metal Component</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/isometric2.png" class="">
+<h2 id="Isometric-Exercise"><a href="#Isometric-Exercise" class="headerlink" title="Isometric Exercise"></a><font color=#FFA07A>Isometric Exercise</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/isometric1.png" class="">
+<h2 id="Woring-with-FILLET-and-CHAMFER"><a href="#Woring-with-FILLET-and-CHAMFER" class="headerlink" title="Woring with FILLET and CHAMFER"></a><font color=#FFA07A>Woring with FILLET and CHAMFER</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/filletChamfer.jpg" class="">
 <h2 id="Zurish-Clock"><a href="#Zurish-Clock" class="headerlink" title="Zurish Clock"></a><font color=#FFA07A>Zurish Clock</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/clock.jpg" class="">
-<h2 id="7-pointed-star"><a href="#7-pointed-star" class="headerlink" title="7 pointed star"></a><font color=#FFA07A>7 pointed star</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/7pointedStar.jpg" class="">
-
+<h2 id="7-Pointed-Star"><a href="#7-Pointed-Star" class="headerlink" title="7 Pointed Star"></a><font color=#FFA07A>7 Pointed Star</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/3979413093/7pointedStar.jpg" class="">
 
 ]]></content>
       <categories>
@@ -678,6 +681,58 @@
       <tags>
         <tag>python</tag>
         <tag>作品集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>政大今天有卦嗎? [Java專案]</title>
+    <url>/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/</url>
+    <content><![CDATA[<p>這是我在2022年4月~6月製作的團體專案，一個融入政大生活的卜卦程式。<br>主程式語言為Java，連結資料庫(MySQL)，利用JavaSwing製作GUI，完成的<font color=#C53761><strong>簡易易經三錢法解卦程式</strong></font>，將易經經文轉換成較好理解的白話文，並融入政大人生活，提供政大學生感情、事業（學業）上的指引、具體建言，或搏君一笑。</p>
+<span id="more"></span>
+<h2 id="專案程式碼"><a href="#專案程式碼" class="headerlink" title="專案程式碼"></a><font color=#FFA07A>專案程式碼</font></h2><p>可至<a href="https://github.com/kiwi1210/JavaProjectGua">此專案GitHub頁面</a>上查看。</p>
+<h2 id="三錢卜算法介紹"><a href="#三錢卜算法介紹" class="headerlink" title="三錢卜算法介紹"></a><font color=#FFA07A>三錢卜算法介紹</font></h2><p>三錢卜算法使用三個錢幣，一次擲出一個爻，六爻為一卦。由下往上紀錄卦象，擲出的第一次為最下面的一爻（初爻），然後是由下往上算的第二爻，以此類推，第六次才是最上面的一爻。擲出三個正面為老陽；一正二反為少陽；二正一反為少陰；三個皆反為老陰。<br>運用簡易三錢法，根據使用者賦予給三個硬幣正反面（共六面）的值，透過奇偶數辨識陰陽，和隨機變數模擬出的擲硬幣結果，分別推算六個爻的陰陽後，即可得出六十四卦的其中一卦作為卜算結果。</p>
+<h2 id="專案優勢"><a href="#專案優勢" class="headerlink" title="專案優勢"></a><font color=#FFA07A>專案優勢</font></h2><ul>
+<li>將易經經文轉換成白話文句，並融入政大生活，提供具體建言</li>
+<li>提供較詳盡的卜算程序，為目前網路上所沒有</li>
+<li>無接觸的算卦過程，提供給害羞、不敢到實體店面問卦的人</li>
+<li>網路上已有許多塔羅、算命程式，但易經卜卦少見</li>
+</ul>
+<h2 id="WBS-工作分解結構"><a href="#WBS-工作分解結構" class="headerlink" title="WBS(工作分解結構)"></a><font color=#FFA07A>WBS(工作分解結構)</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/WBS.png" class="">
+<h2 id="系統demo"><a href="#系統demo" class="headerlink" title="系統demo"></a><font color=#FFA07A>系統demo</font></h2><p>在此介紹主要介面，因此登入介面和操作說明介面，這兩個介面不會在此處demo出來。</p>
+<p><strong>首頁介面</strong></p>
+<ul>
+<li>點選評論可開啟登入介面</li>
+<li>點選操作說明可開啟說明介面</li>
+<li>先選擇算卦類別再點選開始算卦可開啟算卦介面</li>
+<li>根據選擇的算卦類別，會在開始算卦此按鈕上出現相應顏色<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro.png" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro1.png" class=""></li>
+</ul>
+<hr>
+<p><strong>算卦介面</strong></p>
+<ol>
+<li>在三個錢幣的正反面(正面為上排的黃色；反面為下排的咖啡色)分別輸入一個正整數，共六個</li>
+<li>請避免同一錢正反面奇偶相同</li>
+<li>點選“生成新爻”六次，完成後自動進入解卦介面</li>
+<li>若過程中需要中斷，或跳出錯誤訊息，請點選“重新再來”，並重複前面步驟1~3<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination1.png" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination.png" class=""></li>
+</ol>
+<hr>
+<p><strong>解卦介面</strong></p>
+<ul>
+<li>展示卦辭與建議</li>
+<li>展示相關評論</li>
+<li>點選評論可進入登入介面<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/interpret.png" class=""></li>
+</ul>
+<hr>
+<p><strong>評論介面</strong><br>新增評論<br>1.點選新增<br>2.沿用預先設定的評論編號或輸入下一編號<br>3.輸入欲評論的卦編號<br>4.點選欲給予的分數(1~5)<br>5.輸入評論文字<br>6.點選執行<br>刪除評論<br>1.點選刪除<br>2.輸入欲刪除評論的編號<br>3.點選執行</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/comment.png" class="">
+<h2 id="未來修正"><a href="#未來修正" class="headerlink" title="未來修正"></a><font color=#FFA07A>未來修正</font></h2><p>由於易經三錢卜算法的複雜，使我們花了不少時間設計和修正介面，尤其是算卦介面。<br>未來可以設計引導式操作，藉由利用彈出式視窗，在每個步驟給予使用者提示，一步一步帶領使用者進行操作。</p>
+]]></content>
+      <categories>
+        <category>Portfolio</category>
+      </categories>
+      <tags>
+        <tag>作品集</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>

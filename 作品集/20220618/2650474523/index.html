@@ -20,28 +20,29 @@
     var CONFIG = {"hostname":"kiwi1210.github.io.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，">
+  <meta name="description" content="這是我在2022年4月~6月製作的團體專案，一個融入政大生活的卜卦程式。主程式語言為Java，連結資料庫(MySQL)，利用JavaSwing製作GUI，完成的簡易易經三錢法解卦程式，將易經經文轉換成較好理解的白話文，並融入政大人生活，提供政大學生感情、事業（學業）上的指引、具體建言，或搏君一笑。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用GIS產出的地圖們">
-<meta property="og:url" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/index.html">
+<meta property="og:title" content="政大今天有卦嗎? [Java專案]">
+<meta property="og:url" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/index.html">
 <meta property="og:site_name" content="Avoholic">
-<meta property="og:description" content="在這篇文中，我想分享一些在課程中利用GIS分析後產出的地圖。第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，">
+<meta property="og:description" content="這是我在2022年4月~6月製作的團體專案，一個融入政大生活的卜卦程式。主程式語言為Java，連結資料庫(MySQL)，利用JavaSwing製作GUI，完成的簡易易經三錢法解卦程式，將易經經文轉換成較好理解的白話文，並融入政大人生活，提供政大學生感情、事業（學業）上的指引、具體建言，或搏君一笑。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_table.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_chart.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/slope.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis1.jpg">
-<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis2.jpg">
-<meta property="article:published_time" content="2022-04-07T12:44:08.000Z">
-<meta property="article:modified_time" content="2022-04-09T14:34:20.979Z">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/WBS.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro1.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination1.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/interpret.png">
+<meta property="og:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/comment.png">
+<meta property="article:published_time" content="2022-06-18T14:34:24.000Z">
+<meta property="article:modified_time" content="2022-06-18T19:06:31.187Z">
 <meta property="article:author" content="Avoholic 酪梨愛好者">
-<meta property="article:tag" content="GIS">
 <meta property="article:tag" content="作品集">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg">
+<meta name="twitter:image" content="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/WBS.png">
 
-<link rel="canonical" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/">
+<link rel="canonical" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/">
 
 
 <script id="page-configurations">
@@ -54,7 +55,7 @@
   };
 </script>
 
-  <title>利用GIS產出的地圖們 | Avoholic</title>
+  <title>政大今天有卦嗎? [Java專案] | Avoholic</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-201219835-1"></script>
     <script>
@@ -179,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/">
+    <link itemprop="mainEntityOfPage" href="http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          利用GIS產出的地圖們
+          政大今天有卦嗎? [Java專案]
         </h1>
 
         <div class="post-meta">
@@ -202,14 +203,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2022-04-07 20:44:08" itemprop="dateCreated datePublished" datetime="2022-04-07T20:44:08+08:00">2022-04-07</time>
+              <time title="創建時間：2022-06-18 22:34:24" itemprop="dateCreated datePublished" datetime="2022-06-18T22:34:24+08:00">2022-06-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-04-09 22:34:20" itemprop="dateModified" datetime="2022-04-09T22:34:20+08:00">2022-04-09</time>
+                <time title="修改時間：2022-06-19 03:06:31" itemprop="dateModified" datetime="2022-06-19T03:06:31+08:00">2022-06-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,8 +238,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="作品集/20220407/1373889537/" itemprop="commentCount"></span>
+    <a title="disqus" href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="作品集/20220618/2650474523/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,7 +249,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>2 分鐘</span>
+              <span>1 分鐘</span>
             </span>
 
         </div>
@@ -260,38 +261,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在這篇文中，我想分享一些在課程中<font color=#C53761><strong>利用GIS分析後產出的地圖</strong></font>。<br>第一次接觸到GIS(Geographic Information System，地理資訊系統)，是在2021下半年修的一堂課 - 地理資訊科學。從那堂課之後，就發現地理資訊系統的應用真的非常廣泛，而ArcGIS和QGIS這兩個軟體也非常強大。<br><strong>本文在Window10 x64環境下操作，QGIS版本為QGIS DESKTOP 3.16.11，ArcGIS版本為ArcGIS Pro 2.8</strong><br><strong>擔心涉及版權，因此不放上操作過程截圖</strong></p>
+        <p>這是我在2022年4月~6月製作的團體專案，一個融入政大生活的卜卦程式。<br>主程式語言為Java，連結資料庫(MySQL)，利用JavaSwing製作GUI，完成的<font color=#C53761><strong>簡易易經三錢法解卦程式</strong></font>，將易經經文轉換成較好理解的白話文，並融入政大人生活，提供政大學生感情、事業（學業）上的指引、具體建言，或搏君一笑。</p>
 <span id="more"></span>
-<h2 id="台北市土壤液化潛勢圖"><a href="#台北市土壤液化潛勢圖" class="headerlink" title="台北市土壤液化潛勢圖"></a><font color=#FFA07A>台北市土壤液化潛勢圖</font></h2><p>從台灣村里界圖中篩選出台北市里界圖，並將坐標系統轉換為TWD97。<br>在<a target="_blank" rel="noopener" href="https://soil.taipei/Taipei/Main/pages/index.html">台北市政府土壤液化潛勢查詢系統</a> 點選 <em>圖資下載</em> &gt; <em>液化潛勢區GeoJSON(TWD97)</em> 下載 TPLiquid_97.GeoJSON(臺北市土壤液化潛勢圖)。<br>開啟ArcGIS Pro(或是其他GIS軟體)，新增一個project專案，使用 <em>JSON to Features</em> 工具將檔案匯入geodatabase中，並將檔案加入Map中，底圖採用國土測繪圖資雲之<em>台灣通用電子地圖</em>，然後設定土壤液化潛勢分級名稱。新增一個Layout以繪製地圖。</p>
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid.jpg" class="">
-<div class="pdfobject-container" data-target="./pdf/TP_Liquid.pdf" data-height="500px"></div>
-
-
-<h2 id="台北市8行政區土壤液化面積統計圖表"><a href="#台北市8行政區土壤液化面積統計圖表" class="headerlink" title="台北市8行政區土壤液化面積統計圖表"></a><font color=#FFA07A>台北市8行政區土壤液化面積統計圖表</font></h2><p>延續上個專案，在同一個專案中新增一個Map，將底圖改為<a target="_blank" rel="noopener" href="https://gis.sinica.edu.tw/tileserver/">中央研究院WMTS服務</a>之<em>1930-日治時期地質圖</em>，加入在上一個地圖加入的feature - TPLiquid與 Taipei_Admin_Sub (這是老師另外整理出的csv檔)。</p>
-<blockquote>
-<p>個人習慣: 加入資料前，都會先檢視資料內容和格式。</p>
-</blockquote>
-<p>設定 TP_liquid 圖層之透明度為50%，加上台北市次分區(sec_name)的名稱作為標籤(label)，篩選出   <em>萬華、大同、中正、大安、中山、松山、信義、南港</em> 共8個行政區的範圍並與 TP_liquid 進行 <strong>套疊分析(Overlay analysis)</strong> 將交集運算的結果存為 TP_liquid_AdminSub，將其屬性資料表(Attribute Table)輸出為 csv檔。<br>開啟 TP_liquid_AdminSub 之屬性表格，利用 <em>Summary Table</em> 統計各行政區中不同等級之土壤液化潛勢區之總面積。新增Layout，並繪製面積統計圖與面積統計表呈現在地圖中。</p>
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_table.jpg" class="">
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/TP_Liquid_chart.jpg" class="">
-
-<h2 id="台北市文山區坡度圖"><a href="#台北市文山區坡度圖" class="headerlink" title="台北市文山區坡度圖"></a><font color=#FFA07A>台北市文山區坡度圖</font></h2><p>新增一個Map，將 台北市行政區 加入Map中，利用 <em>ASCII 3D to Feature Class</em> 工具將 Taipei20MDEM(老師給的資料) 目錄中的原始XYZ點坐標資料轉換為3D的點圖徵集(3D Point Feature Class)，然後利用 <em>Feature to Raster</em> 工具將點圖徵集轉換成 Raster 資料。可修改調色盤和顏色分級方式。<br>利用 <em>Contour</em> 工具產生10m間距等高線圖，<em>Slope</em> 工具產生坡度圖(採用百分比Percentile)， 並依據「山坡地土地可利用限度分類標準」，使用 <em>Reclassify</em> 工具，將坡度圖分類為6。<br>利用 台北市行政區 ，使用 <em>Clip Raster</em> ，將坡度圖切取出文山區的範圍，然後統計各坡度級的面積。由於無法使用calculate geometry，所以先使用 <em>Raster to Polygon</em> 轉成vector。接著在對gridcode這個屬性點擊滑鼠右鍵，選summerize。<br>利用 <em>Raster Calculator</em> 工具，將百分比轉換為用角度表示坡度。</p>
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/slope.jpg" class="">
-<ul>
-<li>一級坡(淺藍)：坡度百分之五以下。</li>
-<li>二級坡(洋紅)：坡度超過百分之五至百分之十五以下。</li>
-<li>三級坡(南瓜黃)：坡度超過百分之十五至百分之三十以下。</li>
-<li>四級坡(深藍)：坡度超過百分之三十至百分之四十以下。</li>
-<li>五級坡(綠)：坡度超過百分之四十至百分之五十五以下。</li>
-<li>六級坡(咖啡)：坡度超過百分之五十五。</li>
+<h2 id="專案程式碼"><a href="#專案程式碼" class="headerlink" title="專案程式碼"></a><font color=#FFA07A>專案程式碼</font></h2><p>可至<a target="_blank" rel="noopener" href="https://github.com/kiwi1210/JavaProjectGua">此專案GitHub頁面</a>上查看。</p>
+<h2 id="三錢卜算法介紹"><a href="#三錢卜算法介紹" class="headerlink" title="三錢卜算法介紹"></a><font color=#FFA07A>三錢卜算法介紹</font></h2><p>三錢卜算法使用三個錢幣，一次擲出一個爻，六爻為一卦。由下往上紀錄卦象，擲出的第一次為最下面的一爻（初爻），然後是由下往上算的第二爻，以此類推，第六次才是最上面的一爻。擲出三個正面為老陽；一正二反為少陽；二正一反為少陰；三個皆反為老陰。<br>運用簡易三錢法，根據使用者賦予給三個硬幣正反面（共六面）的值，透過奇偶數辨識陰陽，和隨機變數模擬出的擲硬幣結果，分別推算六個爻的陰陽後，即可得出六十四卦的其中一卦作為卜算結果。</p>
+<h2 id="專案優勢"><a href="#專案優勢" class="headerlink" title="專案優勢"></a><font color=#FFA07A>專案優勢</font></h2><ul>
+<li>將易經經文轉換成白話文句，並融入政大生活，提供具體建言</li>
+<li>提供較詳盡的卜算程序，為目前網路上所沒有</li>
+<li>無接觸的算卦過程，提供給害羞、不敢到實體店面問卦的人</li>
+<li>網路上已有許多塔羅、算命程式，但易經卜卦少見</li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a><font color=#FFA07A>分析</font></h2><p>新增一個Map，將台北市行政區、大台北捷運路線、大台北捷運站、大臺北地區消防栓清冊、便利商店資料加入Map中，並將底圖設定為<a target="_blank" rel="noopener" href="https://maps.taipei/wmts/">台北市圖磚服務</a>。<br>便利超商的圖層屬性表沒有行政區的名稱，可以利用 <em>Identity (Analysis)</em> 與 台北市行政區 套疊加上行政區名稱，並從其中篩選出大安與信義行政區中的四大超商(7-11、全家、萊爾富、OK超商)。</p>
-<h3 id="1-距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些"><a href="#1-距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些" class="headerlink" title="(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些"></a><font color=#FFA07A>(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些</font></h3><p>利用大台北捷運站去做 <em>Buffer</em> 畫出捷運站50公尺範圍，再利用剛剛buffer得到的資料與大臺北地區消防栓清冊去做 <em>Spatial Join</em> ，發現共有六個捷運站符合。</p>
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis1.jpg" class="">
-<h3 id="2-以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線"><a href="#2-以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線" class="headerlink" title="(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線"></a><font color=#FFA07A>(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線</font></h3><p>利用大台北捷運路線去做 <em>Buffer</em> 畫出捷運站100公尺範圍，再利用剛剛buffer得到的資料與便利商店資料去做 <em>Spatial Join</em> ，可以得到結果。</p>
-<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/analysis2.jpg" class="">
-
-
+<h2 id="WBS-工作分解結構"><a href="#WBS-工作分解結構" class="headerlink" title="WBS(工作分解結構)"></a><font color=#FFA07A>WBS(工作分解結構)</font></h2><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/WBS.png" class="">
+<h2 id="系統demo"><a href="#系統demo" class="headerlink" title="系統demo"></a><font color=#FFA07A>系統demo</font></h2><p>在此介紹主要介面，因此登入介面和操作說明介面，這兩個介面不會在此處demo出來。</p>
+<p><strong>首頁介面</strong></p>
+<ul>
+<li>點選評論可開啟登入介面</li>
+<li>點選操作說明可開啟說明介面</li>
+<li>先選擇算卦類別再點選開始算卦可開啟算卦介面</li>
+<li>根據選擇的算卦類別，會在開始算卦此按鈕上出現相應顏色<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro.png" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/intro1.png" class=""></li>
+</ul>
+<hr>
+<p><strong>算卦介面</strong></p>
+<ol>
+<li>在三個錢幣的正反面(正面為上排的黃色；反面為下排的咖啡色)分別輸入一個正整數，共六個</li>
+<li>請避免同一錢正反面奇偶相同</li>
+<li>點選“生成新爻”六次，完成後自動進入解卦介面</li>
+<li>若過程中需要中斷，或跳出錯誤訊息，請點選“重新再來”，並重複前面步驟1~3<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination1.png" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/divination.png" class=""></li>
+</ol>
+<hr>
+<p><strong>解卦介面</strong></p>
+<ul>
+<li>展示卦辭與建議</li>
+<li>展示相關評論</li>
+<li>點選評論可進入登入介面<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/interpret.png" class=""></li>
+</ul>
+<hr>
+<p><strong>評論介面</strong><br>新增評論<br>1.點選新增<br>2.沿用預先設定的評論編號或輸入下一編號<br>3.輸入欲評論的卦編號<br>4.點選欲給予的分數(1~5)<br>5.輸入評論文字<br>6.點選執行<br>刪除評論<br>1.點選刪除<br>2.輸入欲刪除評論的編號<br>3.點選執行</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/comment.png" class="">
+<h2 id="未來修正"><a href="#未來修正" class="headerlink" title="未來修正"></a><font color=#FFA07A>未來修正</font></h2><p>由於易經三錢卜算法的複雜，使我們花了不少時間設計和修正介面，尤其是算卦介面。<br>未來可以設計引導式操作，藉由利用彈出式視窗，在每個步驟給予使用者提示，一步一步帶領使用者進行操作。</p>
 
     </div>
 
@@ -301,8 +310,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/GIS/" rel="tag"># GIS</a>
               <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" rel="tag"># 作品集</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -311,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/2009873971/" rel="prev" title="組合和觀察 Landsat8 的多波段影像">
-      <i class="fa fa-chevron-left"></i> 組合和觀察 Landsat8 的多波段影像
+    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220410/127851206/" rel="prev" title="空間直角坐標系與大地坐標系變換(xyz2blh)">
+      <i class="fa fa-chevron-left"></i> 空間直角坐標系與大地坐標系變換(xyz2blh)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/3753320447/" rel="next" title="點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml)">
-      點位坐標資料轉換成 Shapefile 和 KML 圖檔 (point2ShpKml) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -383,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E6%BD%9B%E5%8B%A2%E5%9C%96"><span class="nav-number">1.</span> <span class="nav-text">台北市土壤液化潛勢圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%828%E8%A1%8C%E6%94%BF%E5%8D%80%E5%9C%9F%E5%A3%A4%E6%B6%B2%E5%8C%96%E9%9D%A2%E7%A9%8D%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">台北市8行政區土壤液化面積統計圖表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E5%9D%A1%E5%BA%A6%E5%9C%96"><span class="nav-number">3.</span> <span class="nav-text">台北市文山區坡度圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B7%9D%E9%9B%A2%E6%8D%B7%E9%81%8B%E7%AB%9950%E5%85%AC%E5%B0%BA%E7%9A%84%E7%AF%84%E5%9C%8D%E5%85%A7%E6%B6%88%E9%98%B2%E6%A0%93%E6%95%B8%E9%87%8F%E5%A4%A7%E6%96%BC4%E7%9A%84%E6%8D%B7%E9%81%8B%E7%AB%99%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">4.1.</span> <span class="nav-text">(1)距離捷運站50公尺的範圍內消防栓數量大於4的捷運站有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BB%A5%E6%B2%BF%E8%91%97%E6%8D%B7%E9%81%8B%E8%B7%AF%E7%B7%9A100%E5%85%AC%E5%B0%BA%E7%9A%84%E7%AF%84%E5%9C%8D%E5%85%A7%E4%BE%BF%E5%88%A9%E5%95%86%E5%BA%97%E6%95%B8%E9%87%8F%E9%80%B2%E8%A1%8C%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%89%8D10%E5%90%8D%E7%9A%84%E6%8D%B7%E9%81%8B%E8%B7%AF%E7%B7%9A"><span class="nav-number">4.2.</span> <span class="nav-text">(2)以沿著捷運路線100公尺的範圍內便利商店數量進行排序，前10名的捷運路線</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">1.</span> <span class="nav-text">專案程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E9%8C%A2%E5%8D%9C%E7%AE%97%E6%B3%95%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">三錢卜算法介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E5%84%AA%E5%8B%A2"><span class="nav-number">3.</span> <span class="nav-text">專案優勢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WBS-%E5%B7%A5%E4%BD%9C%E5%88%86%E8%A7%A3%E7%B5%90%E6%A7%8B"><span class="nav-number">4.</span> <span class="nav-text">WBS(工作分解結構)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%B5%B1demo"><span class="nav-number">5.</span> <span class="nav-text">系統demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E4%BE%86%E4%BF%AE%E6%AD%A3"><span class="nav-number">6.</span> <span class="nav-text">未來修正</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -543,9 +549,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220407/1373889537/";
-    this.page.identifier = "作品集/20220407/1373889537/";
-    this.page.title = "利用GIS產出的地圖們";
+    this.page.url = "http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20220618/2650474523/";
+    this.page.identifier = "作品集/20220618/2650474523/";
+    this.page.title = "政大今天有卦嗎? [Java專案]";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
