@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://kiwi1210.github.io.com/uncategorized/20221218/355368360/</loc>
+    <loc>http://kiwi1210.github.io.com/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/</loc>
     
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     
   </url>
   
@@ -109,7 +109,7 @@
 
   <url>
     <loc>http://kiwi1210.github.io.com/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -117,56 +117,63 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/hexo/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/GIS/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/%E6%B1%82%E5%AD%B8%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/CS-everywhere/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/python/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/%E4%BD%9C%E5%93%81%E9%9B%86/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/AutoCAD/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/tags/Java/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://kiwi1210.github.io.com/tags/Python/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -175,28 +182,28 @@
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/hexo/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/chat/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/CS-everywhere/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://kiwi1210.github.io.com/categories/%E4%BD%9C%E5%93%81%E9%9B%86/</loc>
-    <lastmod>2022-12-17</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

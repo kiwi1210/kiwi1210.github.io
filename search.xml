@@ -736,49 +736,127 @@
       </tags>
   </entry>
   <entry>
-    <title>個人網站作業(暫時放置)</title>
-    <url>/uncategorized/20221218/355368360/</url>
-    <content><![CDATA[<p>以下是<font color=#C53761><strong>探索數位世界</strong></font>的作業，會暫時放置一陣子。</p>
+    <title>水深資料處理 [海洋測量報告]</title>
+    <url>/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/</url>
+    <content><![CDATA[<p>這是在2022年12月製作的報告，利用老師提供的水深資料，依照內政部水深測量作業規範進行<font color=#C53761><strong>水深資料修正、計算、精度分析和成果製作</strong></font>。<br>主程式語言為Python，利用SciPy、NumPy、pandas和Matplotlib套件將水深資料進行EDA、時間序列資料內插和資料清洗。將上述結果匯入ArcGIS Pro，選取研究區域使用不同空間內插方法，並比較不同內插方法產生之結果，最後繪製DTM(數值地形模型)。</p>
 <span id="more"></span>
-<img src="/uncategorized/20221218/355368360/cat.jpeg" class="">
-<p><strong>貓同學 貓空大學統計系</strong></p>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a><font color=#FFA07A>程式碼</font></h2><p>可至<a href="https://github.com/kiwi1210/hydrographic-survey-data-processing">此報告GitHub頁面</a>上查看。</p>
+<h2 id="資料簡介"><a href="#資料簡介" class="headerlink" title="資料簡介"></a><font color=#FFA07A>資料簡介</font></h2><ol>
+<li><p>161201.HVE<br>該檔案紀錄湧浪補償(Heave Compensation)之數值。<br>下為擷取檔案前六筆資料的內容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">42705.63248162</span>, <span class="number">0.02</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003CBB  0002U <span class="number">0000</span>  <span class="number">0000</span></span><br><span class="line"><span class="number">42705.63248162</span>, <span class="number">0.02</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003D50  0002U <span class="number">0000</span>  <span class="number">0000</span></span><br><span class="line"><span class="number">42705.63248235</span>, <span class="number">0.02</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003C4A  0002U <span class="number">0000</span>  <span class="number">0000</span></span><br><span class="line"><span class="number">42705.63248235</span>, <span class="number">0.01</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003BEF  0001U <span class="number">0000</span>  <span class="number">0000</span></span><br><span class="line"><span class="number">42705.63248307</span>, <span class="number">0.01</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003BBE  0001U <span class="number">0000</span>  <span class="number">0000</span></span><br><span class="line"><span class="number">42705.63248380</span>, <span class="number">0.01</span>, <span class="number">0.00</span>, <span class="number">0.00</span>, <span class="number">0.00</span>,<span class="number">0</span>,:003C95  0001U <span class="number">0000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
+<p>這次內業所需資料為第一行的時間，和第二行的湧浪補償數值。<br>為瞭解資料，獲取資料的資訊、結構和特點，檢查有無離群值或異常值，將資料視覺化。透過下圖，可以推測湧浪補償值在x軸為0.03至0.04間可能有異常值。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/hve.png" class="">
+</li>
+<li><p>161201.SB<br>該檔案紀錄利用單音束(Single Beam)測深所獲得之水深值。<br>下為擷取檔案前六筆資料的內容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">42705.63248144</span>,    <span class="number">6.23</span>,DA00006<span class="number">.23</span> m</span><br><span class="line"><span class="number">42705.63248198</span>,    <span class="number">6.24</span>,DA00006<span class="number">.24</span> m</span><br><span class="line"><span class="number">42705.63248235</span>,    <span class="number">6.23</span>,DA00006<span class="number">.23</span> m</span><br><span class="line"><span class="number">42705.63248288</span>,    <span class="number">6.23</span>,DA00006<span class="number">.23</span> m</span><br><span class="line"><span class="number">42705.63248361</span>,    <span class="number">6.23</span>,DA00006<span class="number">.23</span> m</span><br><span class="line"><span class="number">42705.63248397</span>,    <span class="number">6.23</span>,DA00006<span class="number">.23</span> m</span><br></pre></td></tr></table></figure>
+<p>這次內業所需資料為第一行的時間，和第二行的水深數值(單位為公尺)。<br>透過資料視覺化，可以發現有幾筆水深數值突然上升到超過60公尺，初步判斷超過60公尺的水深值為異常值。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/sb.png" class="">
+</li>
+<li><p>161201N.GGA<br>該檔案紀錄GPS定位資訊。本次作業GPS定位的GGA(Global Positioning System Fix Data)，是NMEA-0183的主要語句之一。NMEA-0183是美國國家海洋電子協會(National Marine Electronics Association)制定的GPS介面協定標準。</p>
+</li>
+</ol>
 <ul>
-<li>台北市文山區</li>
-<li>+886-987-654-321</li>
-<li>cat小老鼠nccu.edu.tw</li>
+<li><p>GGA的GPS定位資訊:(2011，立你斯學習紀錄)<br>$GPGGA,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt;,&lt;7&gt;,&lt;8&gt;,&lt;9&gt;,M,&lt;10&gt;,M,&lt;11&gt;,&lt;12&gt;*hh<br>&lt;1&gt; UTC時間，hhmmss（時分秒）格式<br>&lt;2&gt; 緯度ddmm.mmmm（度分）格式（前面的0也將被傳輸）<br>&lt;3&gt; 緯度半球N（北半球）或S（南半球）<br>&lt;4&gt; 經度dddmm.mmmm（度分）格式（前面的0也將被傳輸）<br>&lt;5&gt; 經度半球E（東經）或W（西經）<br>&lt;6&gt; GPS狀態：0&#x3D;未定位，1&#x3D;非差分定位，2&#x3D;差分定位，6&#x3D;正在估算<br>&lt;7&gt; 正在使用解算位置的衛星數量（00-12）（前面的0也將被傳輸）<br>&lt;8&gt; HDOP水準精度因數（0.5-99.9）<br>&lt;9&gt; 正高&#x2F;海拔高度（-9999.9-99999.9）<br>&lt;10&gt; 地球橢球面相對大地水準面的高度<br>&lt;11&gt; 差分時間（從最近一次接收到差分信號開始的秒數，如果不是差分定位將為空）<br>&lt;12&gt; 差分站ID號0000-1023（前面的0也將被傳輸，如果不是差分定位將為空）</p>
+<p>  下為擷取檔案前六筆資料的內容:</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">42705.65996986</span>,<span class="number">2686916.454</span>,<span class="number">202587.165</span>,<span class="number">4.671</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075021.50</span>,<span class="number">2417.23561092</span>,N,<span class="number">12031.97691455</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.671</span>,M,<span class="number">15.647</span>,M,<span class="number">14.4</span>,0630*<span class="number">70</span></span><br><span class="line"><span class="number">42705.65997529</span>,<span class="number">2686916.167</span>,<span class="number">202587.188</span>,<span class="number">4.670</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075022.00</span>,<span class="number">2417.23545550</span>,N,<span class="number">12031.97692896</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.670</span>,M,<span class="number">15.647</span>,M,<span class="number">15.0</span>,0630*7F</span><br><span class="line"><span class="number">42705.65998686</span>,<span class="number">2686915.603</span>,<span class="number">202587.218</span>,<span class="number">4.713</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075023.00</span>,<span class="number">2417.23515015</span>,N,<span class="number">12031.97694747</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.713</span>,M,<span class="number">15.647</span>,M,<span class="number">16.0</span>,0630*7D</span><br><span class="line"><span class="number">42705.65999844</span>,<span class="number">2686915.036</span>,<span class="number">202587.186</span>,<span class="number">4.735</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075024.00</span>,<span class="number">2417.23484248</span>,N,<span class="number">12031.97692986</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.735</span>,M,<span class="number">15.648</span>,M,<span class="number">17.0</span>,0630*<span class="number">76</span></span><br><span class="line"><span class="number">42705.66001001</span>,<span class="number">2686914.472</span>,<span class="number">202587.176</span>,<span class="number">4.737</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075025.00</span>,<span class="number">2417.23453736</span>,N,<span class="number">12031.97692509</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.737</span>,M,<span class="number">15.648</span>,M,<span class="number">18.0</span>,0630*<span class="number">77</span></span><br><span class="line"><span class="number">42705.66002159</span>,<span class="number">2686913.843</span>,<span class="number">202587.021</span>,<span class="number">4.593</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,$GPGGA,<span class="number">075026.00</span>,<span class="number">2417.23419635</span>,N,<span class="number">12031.97683487</span>,E,<span class="number">2</span>,08,<span class="number">1.0</span>,<span class="number">4.593</span>,M,<span class="number">15.648</span>,M,<span class="number">15.4</span>,0630*7A</span><br></pre></td></tr></table></figure>
+<p>  這次內業所需資料為第一行的時間、第二行的投影坐標系統(TWD97)N坐標、第三行的投影坐標系統(TWD97)E坐標、第九行的地理坐標系統(WGS84)緯度、第十一行的地理坐標系統(WGS84)經度、第十六行的天線高度和第十八行的橢球面至大地水準面(即海平面)之高度。<br>  注意WGS84經度和緯度的單位皆為分(minute)；而天線高度和橢球面至大地水準面(即海平面)之高度的單位為公尺(meter)。<br>  透過資料視覺化，可以大致觀察主測現區域所在位置，以及初步判斷天線高度(Antenna Height)有離群值。</p>
+</li>
 </ul>
-<h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a><font color=#FFA07A>簡介</font></h2><p>超級吃貨 | ⾃學能⼒ | 勇於嘗試新事物<br>討罐罐專業+分析鏟屎官: 修讀貓空大學專業課程，品質保證<br>基礎抓老鼠能力: 是個可以獨當一面的貓貓</p>
-<h2 id="專業技能"><a href="#專業技能" class="headerlink" title="專業技能"></a><font color=#FFA07A>專業技能</font></h2><p><font color=#C53761><strong>程式語言</strong></font></p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/route.png" class="">
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/eh.png" class="">
+<h2 id="內業數據處理"><a href="#內業數據處理" class="headerlink" title="內業數據處理"></a><font color=#FFA07A>內業數據處理</font></h2><p>本次內業數據處理的作業環境為Google Colaboratory和ArcGIS Pro。<br>下圖為內業流程圖。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/hydroFlowChart.png" class="">
+<ol>
+<li>資料集<br>根據上一章資料簡介的內容，本次內業要處理的資料為161201.HVE的時間和湧浪補償值，161201.SB的時間和水深值，以及161201N.GGA的時間、TWD97 N坐標、TWD97 E坐標、WGS84緯度、WGS84經度、天線高度和橢球面至大地水準面(即海平面)之高度。</li>
+<li>整理資料<br>將資料集中所有資料的資料型態，從文字(chr)轉成浮點數(float)。<br>將WGS84緯度和經度的單位，從分(minutes)轉成度(degrees)。</li>
+<li>時間序列資料內插<br>利用SciPy套件中的scipy.interpolate.interp1d函數，以SB檔為基準，內插SB檔時間序列中的GGA檔和HVE檔資料。為避免原始資料中已有的時間點上的資料數值，被內插方程式所影響，因此在變數“kind”維持預設值“linear”。</li>
+<li>資料彙整成DataFrame<br>將資料依照&lt;水深測量作業規範&gt;整理成DataFrame。</li>
+<li>資料清洗<br>在上一章資料簡介中，推測SB檔的水深值、HVE檔的湧浪補償值和GGA檔的天線高度有離群值和異常值的存在，因此進行資料清洗。除此之外，新增兩個欄位:水深(水深+湧浪補償)和橢球高(天線高度+橢球面至大地水準面之高度)。由於湧浪補償的基準方向為向上為正(即水面以上為正值)，因此在處理水深資料時要注意正負號。</li>
+</ol>
 <ul>
-<li>Python: Matplotlib, NumPy, Pandas</li>
-<li>Java: Interface, JDBC</li>
-<li>R: ggplot, tidyverse</li>
+<li>刪除水深(水深+湧浪補償)和天線高度的離群值:<br>由於資料非常態分布且皆一維數據，因此使用最廣泛使用的箱型圖去偵測離群值。<br>(1)    將資料進行排序後，找出第一四分位數(Q1)、第三四分位數(Q3)。<br>(2)    計算 Q3 - Q1 得出四分位距(IQR)。<br>(3)    找出數據中大於Q3 +1.5<em>IQR 或 小於Q1 -1.5</em>IQR的數據，即為離群值。</li>
 </ul>
-<p><font color=#C53761><strong>軟體&#x2F;平台操作</strong></font></p>
+<ol start="6">
+<li><p>輸出CSV檔<br>為方便匯入ArcGIS Pro，將DataFrame匯出成CSV檔。<br>下列為前六筆資料:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Time,Depth,Heave Compensation,E,N,longitude,latitude,Antenna Height,Undulation,Survey Method,Water Depth,EH</span><br><span class="line"><span class="number">42705.65999988</span>,<span class="number">0.0</span>,-<span class="number">0.0073972889464766</span>,<span class="number">202587.185</span>,<span class="number">2686914.966</span>,<span class="number">120.5329488</span>,<span class="number">24.2872467</span>,<span class="number">4.735</span>,<span class="number">15.648</span>,SB,-<span class="number">0.007</span>,<span class="number">20.383</span></span><br><span class="line"><span class="number">42705.66000332</span>,<span class="number">0.0</span>,-<span class="number">0.025</span>,<span class="number">202587.182</span>,<span class="number">2686914.798</span>,<span class="number">120.5329488</span>,<span class="number">24.2872452</span>,<span class="number">4.736</span>,<span class="number">15.648</span>,SB,-<span class="number">0.025</span>,<span class="number">20.384</span></span><br><span class="line"><span class="number">42705.66000694</span>,<span class="number">0.0</span>,-<span class="number">0.04</span>,<span class="number">202587.179</span>,<span class="number">2686914.622</span>,<span class="number">120.5329488</span>,<span class="number">24.2872436</span>,<span class="number">4.736</span>,<span class="number">15.648</span>,SB,-<span class="number">0.04</span>,<span class="number">20.384</span></span><br><span class="line"><span class="number">42705.66000856</span>,<span class="number">0.0</span>,-<span class="number">0.04</span>,<span class="number">202587.177</span>,<span class="number">2686914.543</span>,<span class="number">120.5329488</span>,<span class="number">24.2872429</span>,<span class="number">4.737</span>,<span class="number">15.648</span>,SB,-<span class="number">0.04</span>,<span class="number">20.385</span></span><br><span class="line"><span class="number">42705.66001037</span>,<span class="number">0.0</span>,-<span class="number">0.04</span>,<span class="number">202587.171</span>,<span class="number">2686914.452</span>,<span class="number">120.5329487</span>,<span class="number">24.2872421</span>,<span class="number">4.733</span>,<span class="number">15.648</span>,SB,-<span class="number">0.04</span>,<span class="number">20.381</span></span><br><span class="line"><span class="number">42705.66001598</span>,<span class="number">0.0</span>,-<span class="number">0.03</span>,<span class="number">202587.096</span>,<span class="number">2686914.148</span>,<span class="number">120.532948</span>,<span class="number">24.2872394</span>,<span class="number">4.663</span>,<span class="number">15.648</span>,SB,-<span class="number">0.03</span>,<span class="number">20.311</span></span><br></pre></td></tr></table></figure></li>
+<li><p>AOI(Area of Interest)<br>根據&lt;水深測量作業規範&gt;303章第九條，船隻迴轉時所測得之資料不得作為計算成果之資料。<br>將資料匯入ArcGIS Pro後，利用Select by Polygon選取主測線區域，選取後如下圖所示。</p>
+<img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/aoi.png" class="">
+</li>
+<li><p>空間資料內插<br>利用Geostatistical Analyst Tools中的Interpolation，這個工具包底下有很多空間內插方法，這些方法不但可以將資料內插獲得網格資料，還可以擬合內插模型，並驗證內插結果。<br>本次內業以水深作為Input Data，並選取其中五個內插方法分別是IDW, Spline with tension(under Radial Basis Functions), Simple Kriging, Ordinary Kriging, 和Empirical Bayesian Kriging。</p>
+</li>
+</ol>
 <ul>
-<li>ArcGIS Pro basic</li>
-<li>2D AutoCAD</li>
-<li>SPSS</li>
+<li><strong>IDW(Inverse distance weighted)</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/idw.png" class=""></li>
+<li><strong>Spline with tension</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/spline.png" class=""></li>
+<li><strong>Simple Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/simple.png" class=""></li>
+<li><strong>Ordinary Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/ordinary.png" class=""></li>
+<li><strong>Empirical Bayesian Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/ebk.png" class=""></li>
 </ul>
-<p><font color=#C53761><strong>其他技能</strong></font></p>
+<ol start="9">
+<li>分析內插結果<br>利用Geostatistical Analyst的cross validation驗證內插模型的好壞。下面的圖表，原則上點和線都是越靠近藍線越好。圖表可供快速瀏覽模型擬合狀況，但本次內業實際判斷內插效果好壞是利用 RMS(Root-Mean-Square)的數值，RMS數值越小表示內插效果越好。</li>
+</ol>
 <ul>
-<li>熟悉Word, Excel, PowerPoint</li>
-<li>TOEIC金色證書</li>
-<li>貓貓語國家普考及格</li>
+<li><strong>IDW(Inverse distance weighted)</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/idw_rms.png" class=""></li>
+<li><strong>Spline with tension</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/spline_rms.png" class=""></li>
+<li><strong>Simple Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/simple_rms.png" class=""></li>
+<li><strong>Ordinary Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/ordinary_rms.png" class=""></li>
+<li><strong>Empirical Bayesian Kriging</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/ebk_rms.png" class="">
+
+  五個內插法的左上方圖表都可以發現最上方總是有一排紅點，這是因為沒有將水深為零或是近零的數值去除，導致內插模型的效果變差；右上方圖表理論上最好的狀況是紅點均勻分布在藍線上下，但五個內插法的右上方圖表之右下邊都有一排紅點，也是與左上方圖表相同的原因；而左下方圖表幫助觀察模型擬合狀況，但不代表紅線與藍線完全重合就是好的，可能會產生過度擬合的問題。最後下方的表格，可以直接看RMS的數值。  <table>
+    <tr>
+      <td>內插法</td>
+      <td>RMS</td>
+    </tr>
+    <tr>
+      <td>IDW</td>
+      <td>≈1.24</td>
+    </tr>
+    <tr>
+      <td>Spline with tension</td>
+      <td>≈1.27</td>
+    </tr>
+    <tr>
+      <td>Simple Kriging</td>
+      <td>≈1.19</td>
+    </tr>
+    <tr>
+      <td>Ordinary Kriging</td>
+      <td>≈1.17</td>
+    </tr>
+    <tr>
+      <td>Empirical Bayesian Kriging</td>
+      <td>≈1.16</td>
+    </tr>
+  </table></li>
 </ul>
-<h2 id="學歷"><a href="#學歷" class="headerlink" title="學歷"></a><font color=#FFA07A>學歷</font></h2><p><strong>統計學系&#x2F;雙主修貓貓語言學系</strong><br>國⽴貓空⼤學</p>
+<ol start="10">
+<li>繪製DTM<br>根據上述分析結果得知，Empirical Bayesian Kriging的RMS最低，Ordinary Kriging次之，內插數值越低表示效果越好，因此利用Hillshade繪製利用內插所獲得網格資料的DTM。</li>
+</ol>
 <ul>
-<li>修習貓貓語商管學程(Meow Taught Program)</li>
-<li>貓貓語言學系GPA: 4.08&#x2F;4.3</li>
+<li><strong>DTM(Raster produced by Empirical Bayesian Kriging)</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/Map.png" class=""></li>
+<li><strong>DTM(Raster produced by Ordinary Kriging)</strong><img src="/%E4%BD%9C%E5%93%81%E9%9B%86/20230415/3903201576/ordinaryKriging.png" class=""></li>
 </ul>
-<h2 id="經歷"><a href="#經歷" class="headerlink" title="經歷"></a><font color=#FFA07A>經歷</font></h2><p><strong>喵喵研究院暑期實習(Jul. 2022 - Aug. 2022)</strong></p>
-<ul>
-<li>參與「不同時空背景下貓咪勢力變化之過程與分析」計畫</li>
-</ul>
-<p><strong>喵喵雜耍社 副社長(Jul. 2021 - Jun. 2022)</strong></p>
-<ul>
-<li>舉辦夏季成果發表會，吸引200+觀眾</li>
+<h2 id="未來修正"><a href="#未來修正" class="headerlink" title="未來修正"></a><font color=#FFA07A>未來修正</font></h2><ol>
+<li>未考量實際情況: 水深資料未將數值為零或是近零的資料視為異常值刪除，造成後續擬合內插模型的結果變差。</li>
+<li>DTM的繪製可以3D呈現。</li>
+<li>未來可以將橢球高也列入研究範圍，或許可以比對水深、天線高度和橢球面，或是繪製同時有平均海水面、水底地形和橢球面的3D地形模型。</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a><font color=#FFA07A>參考資料</font></h2><ul>
+<li>內政部（2022，3月15日）。水深測量作業規範。資料引自<br><a href="https://www.land.moi.gov.tw/upload/k1-20220315164147.pdf">https://www.land.moi.gov.tw/upload/k1-20220315164147.pdf</a></li>
+<li>立你斯學習紀錄(2011，12月21日)。GPS資料格式。資料引自<br><a href="https://b8807053.pixnet.net/blog/post/3610870">https://b8807053.pixnet.net/blog/post/3610870</a></li>
+<li>Stack Overflow(2014，12月30日)。What do the different values of the kind argument mean in scipy.interpolate.interp1d?。資料引自<br><a href="https://stackoverflow.com/questions/27698604/what-do-the-different-values-of-the-kind-argument-mean-in-scipy-interpolate-inte">https://stackoverflow.com/questions/27698604/what-do-the-different-values-of-the-kind-argument-mean-in-scipy-interpolate-inte</a></li>
+<li>叡揚資訊(2021，4月13日)。離群值之簡介。資料引自<br><a href="https://www.gss.com.tw/blog/%E9%9B%A2%E7%BE%A4%E5%80%BC%E4%B9%8B%E7%B0%A1%E4%BB%8B">https://www.gss.com.tw/blog/%E9%9B%A2%E7%BE%A4%E5%80%BC%E4%B9%8B%E7%B0%A1%E4%BB%8B</a></li>
+<li>ArcGIS Pro。Get started with Geostatistical Analyst in ArcGIS Pro。資料引自<br><a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/get-started-with-geostatistical-analyst-in-arcgis-pro.htm">https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/get-started-with-geostatistical-analyst-in-arcgis-pro.htm</a></li>
+<li>ArcGIS Pro。The geostatistical workflow。資料引自<br><a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/the-geostatistical-workflow.htm">https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/the-geostatistical-workflow.htm</a></li>
+<li>自強工程顧問有限公司。服務項目介紹。資料引自<br><a href="http://www.strongco.com.tw/page_02_service.html">http://www.strongco.com.tw/page_02_service.html</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Portfolio</category>
+      </categories>
+      <tags>
+        <tag>作品集</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
 </search>
